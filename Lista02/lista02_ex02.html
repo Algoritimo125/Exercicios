@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de peso</title>
+</head>
+
+<body>
+    <div>
+        <text> Peso </text>
+        <input type="text" id='input_peso'>
+        <br>
+
+        <text> altura</text>
+        <input type="text" id="input_altura">
+        <br>
+
+        <button onclick="informações()"> Fale comigo </button>
+
+    </div>
+
+    <div> 
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex01.html">
+            pag 1 
+        </a>
+        <br>
+
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex02.html">
+            pag 2 
+        </a>
+        <br>
+       
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex03.html">
+            pag 3 
+        </a>
+        <br>
+
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex04.html">
+            pag 4 
+        </a>
+        <br>
+    </div>
+</body>
+</html>
+
+<script>
+function informações() {
+
+    alert('Você pesa ' + input_peso.value + "KG. e tem " + input_altura.value + 'm de altura');
+
+};
+
+</script>

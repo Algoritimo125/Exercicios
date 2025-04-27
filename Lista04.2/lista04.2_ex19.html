@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A TEMPERATURA DO AMBIENTE, EM GRAUS CELSIUS: 
+    <br>
+    <input type="number" id="input_temperatura">
+    <br>
+    <br>
+
+    <button onclick="result()"> VERIFICAR CLIMA </button> 
+    <br>
+    <br>
+
+    <div id="div_msm"> </div>
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        clima = Number(input_temperatura.value);
+        
+        if (clima  < 10 ) {
+            div_msm.innerHTML = `Apropriado para conserva<br>
+            <img 
+            src="https://img.freepik.com/fotos-gratis/visao-superior-da-variedade-de-piramide-alimentar-real_23-2150238927.jpg">`;
+            
+        } else {
+            div_msm.innerHTML = `Inapropriado para conserva<br>
+            <img 
+            src="https://media.istockphoto.com/id/187676687/pt/foto/alimentos-frescos-em-lata-do-lixo-para-ilustrar-res%C3%ADduos.jpg?s=612x612&w=0&k=20&c=2sPQhmqgrFAUZ-Nmd5NyogYJ5PoSkTjM_O54OOFkmrs=">`;
+        };
+    }
+</script>

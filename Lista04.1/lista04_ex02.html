@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    insira um valor para adicionar ou retirar:
+    <input type="number" id="input_valor">
+    <br>
+    <button onclick="Receber()"> Depositar </button>
+    <button onclick="Pagar()"> Retirar </button>
+</body>
+</html>
+
+<script> 
+    var saldo = 0;
+
+    function Receber () {
+        saldo += Number(input_valor.value);
+        alert('Transferência de R$'+ input_valor.value + ' recebida! Saldo atual: R$' + saldo);
+
+    }; 
+    function Pagar () {
+        saldo -= Number(input_valor.value);
+        alert('Pagamento de R$' + input_valor.value + ' efetuado! Saldo atual: R$' + saldo );
+    };
+</script>

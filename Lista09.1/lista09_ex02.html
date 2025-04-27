@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Frase Repetitiva</title>
+</head>
+
+<body>
+    <button onclick="calcular()"> diga algo sobre a matéria Algoritimos</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+<script>
+    // 2. Frase Repetitiva
+    // Crie um programa o qual: 
+    // a) Tenha um botão "Diga algo sobre a matéria de Algoritmos";  
+    // b) Ao clicar nele, mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra.   
+
+    function calcular() {
+        var contador = 1;
+
+        var mensagem = ``;
+
+        while (contador <= 7) {
+            contador ++;
+            mensagem += `Algoritimo é ${contador} vezes melhor que outras materias<br>`;
+        }
+        div_msm.innerHTML = mensagem;
+    }
+</script>

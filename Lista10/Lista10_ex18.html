@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Coca-Colas</title>
+</head>
+<body>
+    <label> 
+        <h3>Insira quantas latas coca-cola, você acha que ja bebeu na vida</h3>
+        <input type="number" id="input_qtd_cocas">
+    </label>
+    <br>
+
+    <button onclick="exibir()">Ver quantidade</button>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+// Crie um programa no qual:   
+// a) O usuário informe quantas "Coca-Cola" ele acha que já bebeu na vida   
+
+// b) Ao clicar em "Ver a quantidade", devem aparecer na tela N garrafinhas (ou latas, se preferir) de "Coca-Cola" uma ao lado da outra, conforme a quantidade informada em a)   
+
+// c) Para saber se seu programa está correto, teste algo assim: informe 20 e clique. Depois informe só 3 e clique novamente. Veja se vão aparecer só 3 garrafinhas (ou latas) na tela.   
+    function exibir () {
+        var qtd_cocas =  Number(input_qtd_cocas.value);
+        var mensagem = '';
+        var quebra = 10;
+
+        
+        for (i = 1; i <= qtd_cocas; i++) {
+            
+            mensagem += `<img src="https://andinacocacola.vtexassets.com/arquivos/ids/158593/SKUs-Ecommerce--1000-x-1000-px---9-.jpg?v=638703085487330000" width="100px" height="100px"> `; 
+            
+            if(quebra == i){
+                mensagem += `<br>`;
+                quebra+=10;
+            }
+        }
+        div_msm.innerHTML = mensagem;
+    }
+</script>

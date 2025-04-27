@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira uma frase:
+    <input type="text" id="input_frase" onkeyup="validar()">
+    <br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+//     1. Crie um programa o qual:
+// a) Solicite ao usuário um email
+// b) Enquanto ele digita, exiba abaixo se é um email válido ou não. Considere apenas que um email válido contém a letra '@' em algum lugar do texto
+
+    function validar () {
+        var frase = input_frase.value;
+        var tam_frase = frase.length;
+
+            div_msm.innerHTML = `A primeira letra é: ${frase[0]}<br>`;
+            div_msm.innerHTML += `A ultima letra é: ${frase[tam_frase - 1]}`;
+    }
+    
+
+</script>

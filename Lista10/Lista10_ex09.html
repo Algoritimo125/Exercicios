@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares no Intervalo  </title>
+</head>
+<body>
+    <label> 
+        <h3>Insira um valor inicial</h3>
+        <input type="number" id="input_inicio">
+    </label>
+    <br>
+
+    <label>
+        <h3>Insira um valor final</h3>
+        <input type="number" id="input_final">
+    </label>
+    <br>
+
+    <button onclick="exibir()">S2 Pares...</button>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+<script>
+// Crie um programa o qual:
+// a) Solicite um intervalo crescente de valores numéricos    
+// b) Ao clicar num botão "S2 Pares"...   
+// c) Exiba, debaixo do botão, todos os números pares contidos no intervalo. 
+
+    function exibir () {
+        var inicio = Number(input_inicio.value);
+        var final = Number(input_final.value);
+        var mensagem = '';
+        
+        if (inicio < final ) {
+            for (inicio+=1; inicio < final; inicio ++) {
+                if (inicio % 2 == 0) {
+                    mensagem += `${inicio}<br>`;
+                }
+
+                div_msm.innerHTML = mensagem;
+            }
+        } else {
+            alert("Numero de inicio não pode ser menor/igual que o número final;")
+        }
+    }
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A QUANTIDADE DE HOMENS: 
+    <br>
+    <input type="number" id="input_qtd_homem">
+    <br>
+    <br>
+
+    INSIRA A QUANTIDADE DE MULHERES: 
+    <br>
+    <input type="number" id="input_qtd_mulher">
+    <br>
+    <br>
+
+    <button onclick="result()"> LIGAR ELEVADOR </button> 
+    <br>
+    <br>
+
+    <div id="div_msm"> </div>
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        peso_homem = Number(input_qtd_homem.value) * 90;
+        peso_mulher = Number(input_qtd_mulher.value) * 70;
+        
+        peso_total = peso_homem + peso_mulher;
+
+        diferenca = 500 - peso_total;
+
+        if (peso_total > 500 ) {
+            div_msm.innerHTML = `<span style="color: red">Alguém precisa descer. Precisa perder ${diferenca}kg para mover o elevador</span> `;
+            
+        } else {
+            div_msm.innerHTML = `<span style="color: green">Elevador vai se mover, pois está com ${peso_total}kg</span> `; 
+            };
+    };
+</script>

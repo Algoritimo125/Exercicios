@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA O VALOR DA PIZZA: 
+    <br>
+    <input type="number" id="input_vPizza">
+    <br>
+    <br>
+
+    INSIRA QUANTOS AMIGOS ESTÃO REUNIDOS: 
+    <br>
+    <input type="number" id="input_qtdAmigos">
+    <br>
+    <br>
+
+
+    <button onclick="result()"> ROLA A PIZZA? </button> 
+    <br>
+    <br>
+
+    <div id="div_msm"> </div>
+
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        valorPizza = Number(input_vPizza.value);
+        qtdAmigos = Number(input_qtdAmigos.value);
+
+        rateio = valorPizza/qtdAmigos ;
+        
+        if (qtdAmigos > 1 ) {
+
+            if(rateio <= 20 ) {
+                div_msm.innerHTML = `Cada amigo vai pagar R$${rateio} pela pizza.`;
+            } if(rateio > 20) {
+                div_msm.innerHTML = `
+                Cada amigo vai pagar R$${rateio} pela pizza.
+                Deu ruim! Pizza muito cara!`;
+            };
+        
+        } if (qtdAmigos <= 1) {
+            div_msm.innerHTML = `Erro: É necessario ter mais de uma pessoa nessa reunião.`;
+        };
+    }
+</script>

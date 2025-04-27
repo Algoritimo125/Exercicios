@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase Repetitiva</title>
+</head>
+<body>
+    <button onclick="dizer()">Diga algo sobre a matéria de Algoritmos</button>
+    <br>
+
+    <div id="div_msm"></div>
+    <br>
+</body>
+</html>
+<script>
+// Crie um programa o qual: 
+// a) Tenha um botão "Diga algo sobre a matéria de Algoritmos";  
+// b) Ao clicar nele, mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra.
+
+function dizer () {
+    for(var i =1; i <= 7; i++) {
+        div_msm.innerHTML += `A matéria 'Algoritimo' é ${i} vezes mais braba que quealquer outra metária<br>`;
+    }; 
+}
+</script>
+

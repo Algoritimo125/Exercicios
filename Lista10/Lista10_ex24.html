@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um elefante, incomoda muita gente...</title>
+</head>
+
+<body>
+    <label>
+        <h3>Insira sua idade</h3>
+        <input type="number" id="input_idade" oninput="exibir()" onkeyup="mudar_cor_vermelho()"
+            onkeydown="mudar_cor_verde()">
+    </label>
+    <br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+
+<script>
+    // 10. Fases da Vida
+    // Crie um programa que vá contando a idade do usuário e descrevendo sua fase na vida, considerando que:   
+    //     - Primeira Infância: 0 a 4 anos   
+    //     - Pré-escolar: + de 4 aos 6 anos   
+    //     - Segunda Infância: + de 6 aos 10 anos   
+    //     - Adolescência: + de 10 aos 18 anos   
+    //     - Adulto: + de 18 até os 50 anos   
+    //     - Melhor idade: + de 50 anos até 100 anos   
+    //     - Matusalém: + de 100 anos   
+    // Assim, sua página HTML deve solicitar a idade do usuário. Na medida em que for digitando (pesquise por oninput ou onkeyup), deve aparecer uma contagem de idade e indicação de fase da vida abaixo como neste exemplo:   
+    //    0 anos (Primeira Infância)   
+    //    1 anos (Primeira Infância)   
+    //    2 anos (Primeira Infância)   
+    //    3 anos (Primeira Infância)   
+    //    4 anos (Primeira Infância)   
+    //    5 anos (Pré-escolar)   
+    //    6 anos (Pré-escolar)   
+    //    7 anos (Segunda Infância)   
+    //    ....   
+    // A última linha deve ser a idade informada.   
+
+    function exibir() {
+        var idade = Number(input_idade.value);
+        var mensagem = '';
+
+        if (idade < 150) {
+            for (i = 0; i <= idade; i++) {
+
+                if (i >= 0 && i <= 4) {
+                    var concordancia = '';
+                    if (i < 2) {
+                        concordancia = `s `;
+                    }
+                    mensagem += `${i} anos (Primeira Infância)`;
+                } else if (i <= 6) {
+                    mensagem += `${i} anos (Pré-escolar)`;
+                } else if (i <= 10) {
+                    mensagem += `${i} anos (Segunda Infância)`;
+                } else if (i <= 18) {
+                    mensagem += `${i} anos (Adolescência)`;
+                } else if (i <= 50) {
+                    mensagem += `${i} anos (Adulto)`;
+                } else if (i <= 100) {
+                    mensagem += `${i} anos (Melhor idade)`;
+                } else {
+                    mensagem += `${i} anos (Matusalém)`;
+                }
+                mensagem += `<br>`
+            }
+            div_msm.innerHTML = mensagem;
+        } else { 
+            alert("Está querendo travar meu processamento?🧐😮‍💨😤😡") 
+        }
+    }
+
+    function mudar_cor_vermelho() {
+        input_idade.style.backgroundColor = "red";
+    }
+
+    function mudar_cor_verde() {
+        input_idade.style.backgroundColor = "green";
+    }
+</script>

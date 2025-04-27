@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INFORME A QUANTIDADE DE FILHO:
+    <input type="number" id="input_qtd_filho">
+    <br><br>
+    
+    <button onclick="calcular()"> ANALISAR FAMÍLIA</button>
+    <br><br>
+    <div id="div_msm"></div>    
+
+</body>
+</html>
+<script>
+    function calcular (){
+        var qtd_filhos = Number(input_qtd_filho.value);
+
+        if (qtd_filhos > 0) {
+            if (qtd_filhos >= 1) {
+                div_msm.innerHTML = `Não tem TV <br>`;
+            }if (qtd_filhos >= 2) {
+                div_msm.innerHTML += `Não tem internet <br>`;
+            }if (qtd_filhos >= 3) {
+                div_msm.innerHTML += `Não tem video game<br>`;
+            }if (qtd_filhos >= 4) {
+                div_msm.innerHTML += `Não tem Netflix<br>`;
+            }
+        } else {
+            div_msm.innerHTML = `Não tem filhos`;
+        }   
+    }
+    </script>

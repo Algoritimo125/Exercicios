@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    <h1> Insira qual pokemon você irá iniciar: ( Bulbasaur, Charmander ou Squirtle )  </h1>
+    <input type="text" id="input_pokemon">
+    <br>
+
+    <button onclick="show()">MOSTRAR HUMOR</button>
+    <br>
+
+    <div id="div_msm"></div>
+
+  
+   
+ 
+</body>
+</html>
+
+<script>
+    function show() {
+        
+        var pokemon = input_pokemon.value;
+
+        if (pokemon == 'Bulbasaur') {
+            div_msm.innerHTML = `<img src="img/bulbasaur.jpeg">`;  
+        } else if (pokemon == 'Charmander') {
+            div_msm.innerHTML = `<img src="img/charmander.jpeg">`;
+        } else if (pokemon == 'Squirtle') {
+            div_msm.innerHTML = `<img src="img/squirtle.jpeg"> `;
+        } else {
+            div_msm.innerHTML = `Erro: Insira um valor válido`;
+        }
+
+    };
+</script>

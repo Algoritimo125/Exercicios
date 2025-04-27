@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INFORME O NÚMERO DE CHOCOLATES COMPRADOS:
+    <input type="number" id="input_chocolate">
+    <br><br>
+    
+    <button onclick="calcular()"> COMPRAR</button>
+    <br><br>
+    <div id="div_msm"></div>    
+
+</body>
+</html>
+<script>
+    function calcular (){
+        var varejo_chocolate = 3;
+        var atacado_chocolate = varejo_chocolate - 0.50;
+        var qtd_comprado = Number(input_chocolate.value);
+        var valor_compra='';
+
+        if (qtd_comprado > 12) {
+            valor_compra = qtd_comprado * atacado_chocolate;
+            div_msm.innerHTML = `O valor da sua compra foi: R$${valor_compra}`;    
+        } else {
+            valor_compra = qtd_comprado * varejo_chocolate;
+            div_msm.innerHTML = `O valor da sua compra foi: R$${valor_compra}`;
+        }
+    };
+</script>

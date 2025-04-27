@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. S2 Pares</title>
+</head>
+
+<body>
+    <button onclick="calcular()">S2 Pares</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+<script>
+    // 4. S2 Pares
+    // Crie um programa o qual:
+    // a) Ao clicar num botão "S2 Pares"...  
+    // b) Exiba, debaixo do botão, todos os números pares de 0 a 100, um embaixo do outro   
+
+    function calcular() {
+        var contador = -2;
+
+        var mensagem = ``;
+
+        while (contador < 100 ){
+            contador += 2;
+            mensagem += contador + `<br>`;
+        }
+
+        div_msm.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A QUANTIDADE DE LATINHAS DE REFRIGERANTE CONSUMIDAS POR DIA: 
+    <br>
+    <input type="number" id="input_qtdLatinha">
+    <br>
+    <button onclick="result()"> QUANTOS REFRIS? </button> 
+    <br>
+    <div id="div_msm"> </div>
+
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        qtdLatinha = Number(input_qtdLatinha.value);
+        ano = 365;
+        qtdLataAno = qtdLatinha * ano;
+        
+        if (qtdLatinha >= 0) {
+            
+            if (qtdLataAno < 500) {
+                div_msm.innerHTML = `Você consome ${qtdLataAno} latas de refrigerante por ano`;
+            } if (qtdLataAno >= 500) {
+                div_msm.innerHTML = `Você consome ${qtdLataAno} latas de refrigerante por ano<br>` 
+                +
+                `Cuidado com a diabetes!`;
+            };
+        } if (qtdLatinha < 0 ) {
+            div_msm.innerHTML = `Erro: número de consumo não opode ser negativo.`;
+        }
+    }; 
+</script>

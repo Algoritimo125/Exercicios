@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentimento</title>
+</head>
+<body>
+    <h1> Insira como está se sentindo hoje: (feliz, bravo, triste, surpreso ou cansado)  </h1>
+    <select id="select_humor">
+        <option > Feliz </option>
+        <option > Bravo </option>
+        <option > Triste </option>
+        <option > Surpreso </option>
+        <option > Cansado </option>
+    </select>
+    <br>
+
+    <button onclick="show()">MOSTRAR HUMOR</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+    function show() {
+        
+        var humor = select_humor.value;
+
+        if (humor == 'Feliz') {
+            div_msm.innerHTML = `😊`;  
+        } else if (humor == 'Bravo') {
+            div_msm.innerHTML = `😡`;
+        } else if (humor == 'Triste') {
+            div_msm.innerHTML = `😢`;
+        } else if (humor == 'Surpreso') {
+            div_msm.innerHTML = `😲`;
+        } else if (humor == 'Cansado') {
+            div_msm.innerHTML = `😴`;
+        }
+    };
+</script>

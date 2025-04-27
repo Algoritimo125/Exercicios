@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processo Seletivo</title>
+</head>
+<body>
+    <h1> Inisira a nota do ENEM: </h1>
+    <input type="number" id="input_enem">
+    <br>
+
+    <h1> Inisira a nota do vestibular interno: </h1>
+    <input type="number" id="input_vest_interno">
+    <br><br>
+
+    <button onclick="calcular()">Avaliação</button>
+    <br><br>
+
+</body>
+</html>
+
+<script>
+//     2. Processo Seletivo Mentes Brilhantes
+// No processo seletivo da faculdade Mentes Brilhantes, o aluno é aprovado se sua nota no ENEM foi a partir de 800 ou se ele fizer o vestibular interno e tirar pelo menos 700. Crie um programa que será usado por essa instituição. 
+// a) Solicite a nota do ENEM do aluno 
+// b) Solicite a nota do vestibular interno do aluno 
+// c) Ao clicar em "Avaliação", deve ser exibido um alert com o texto "Parabéns! Aprovado", caso suas notas, segundo as regras, o aprovem 
+// d) Caso contrário, exiba um alert com a frase "Tente semestre que vem!" 
+
+    function calcular() {
+        var enem = Number(input_enem.value);
+        var vest_interno = Number(input_vest_interno.value);
+        
+        if (enem >= 800 || vest_interno >= 700 ) {
+            alert(`Parabéns! Aprovado`);;  
+        } else { 
+            alert(`Tente semestre que vem!`);  
+        }
+
+    };
+</script>

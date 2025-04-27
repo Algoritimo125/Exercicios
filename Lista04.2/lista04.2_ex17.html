@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INFORME SUA FREQUÊNCIA:
+    <input type="number" id="input_frequencia">
+    <br><br>
+    
+    <button onclick="validar_frequencia()"> ANALISAR FREQUENCIA</button>
+    <br><br>
+    
+    <div id="div_msm"></div>
+
+</body>
+</html>
+<script>
+    function validar_frequencia (){
+        var frequencia = input_frequencia.value;
+
+        if (frequencia < 50) {
+            div_msm.innerHTML = `Turista! <br>` + 
+            `<img src="https://st4.depositphotos.com/12985790/20516/i/450/depositphotos_205163862-stock-photo-smiling-traveler-hat-backpack-tourist.jpg">`;
+           
+        } else {
+            div_msm.innerHTML = `Aluno estudioso<br>` + 
+            `<img src="https://media.licdn.com/dms/image/v2/D4D03AQGSeJ2l5r3IyA/profile-displayphoto-shrink_200_200/B4DZSfJV_cGkAY-/0/1737836814831?e=2147483647&v=beta&t=Dtw1osKtlRTi_562majGHw6SlY7btHy4ht29QJm9gXs" >`
+        };
+    };
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A PRIMEIRA NOTA: 
+    <br>
+    <input type="number" id="input_nota_1"> <!-- manter padrão snake iniciado-->
+    <br><br>
+    
+    INSIRA A SEGUNDA NOTA: 
+    <br>
+    <input type="number" id="input_nota_2"><!-- manter padrão snake iniciado-->
+    <br><br>
+
+    INSIRA A TERCEIRA NOTA: 
+    <br>
+    <input type="number" id="input_nota_3"><!-- manter padrão snake iniciado-->
+    <br><br>
+
+    <button onclick="analisar_desempenho()"> ANALISAR DESEMPENHO </button> 
+    <br><br>
+
+    <div id="div_msm"></div>
+
+</body>
+</html>
+
+<script>  
+    // nome da dunção no infinitivo - manti o padrão também 
+    function analisar_desempenho() { 
+
+        var nota_1 = Number(input_nota_1.value); //padrão snake e adicionei a tipagem var para indicar que não é variavél global
+        var nota_2 = Number(input_nota_2.value); //padrão snake e adicionei a tipagem var para indicar que não é variavél global
+        var nota_3 = Number(input_nota_3.value); // padrão snake e adicionei a tipagem var para indicar que não é variavél global
+
+        media = (nota_1 + nota_2 + nota_3)/3;
+        // não é necessario validaçãao menor que 9.4 pois a mensagem sempre vai aparecer
+        div_msm.innerHTML = `Sua média foi de ${media}.`;
+        if(media > 9.4) {
+            div_msm.innerHTML += `Parabéns, você é fora de série!`; //linha para manter o valor da div que sempre vai aparecer e adicionar mais um valor, para poder economizar linhas 
+        };
+        
+    }; 
+</script>

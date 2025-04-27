@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrelas de Recompensa</title>
+</head>
+<body>
+    <body>
+        <label>
+            <h3>Insira quantos depositos fez no banco xpto?</h3>
+            <input type="number" id="input_qtd_depositos">
+        </label>
+        <br>
+    
+        <label>
+            <h3>Insira o valor desses depósitos?</h3>
+            <input type="number" id="input_valor_deposito">
+        </label>
+        <br>
+    
+        <button onclick="exibir()">Acompanhar grana</button>
+    
+        <div id="div_msm"></div>
+    </body>
+</body>
+</html>
+
+<script> 
+// Refaça o programa anterior de tal forma de que:
+// Somente nos meses que ganhou o "bônus", apareça uma imagem de uma estrela bem pequena (reduza a imagem para ficar quase do tamanho da fonte) à direita do valor acumulado.
+
+function exibir () {
+        var qtd_deposito = Number(input_qtd_depositos.value);
+        var valor_deposito = Number(input_valor_deposito.value);
+        
+        var mensagem = '';
+        var saldo = 0;
+        var mes_juros = 3;
+
+        
+        for (i = 1; i <= qtd_deposito; i++) {
+            saldo += valor_deposito;
+            var estrela = '';
+            
+            if (i == mes_juros) {
+                saldo = saldo * 1.01;
+                mes_juros += 3;
+                estrela = `⭐`;
+            }
+            mensagem += `${i}º Mês: R$ ${saldo.toFixed(2)}${estrela}<br>`;
+        }
+        div_msm.innerHTML = mensagem + `Total guardado: R$ ${saldo.toFixed(2)}`;
+    }
+</script>

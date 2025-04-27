@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A RENDA FAMILIAR MENSAL: 
+    <br>
+    <input type="number" id="input_renda">  
+    <br><br>
+
+    INFORME O VALOR DA PRESTAÇÃO:
+    <br>
+    <input type="number" id="input_prestacao">
+    <br><br>
+
+    <button onclick="validarFinanciamento()"> VERIFICAR FINANCIAMENTO </button> 
+    <br><br>
+
+    <div id="div_msm"></div>
+
+</body>
+</html>
+
+<script>  
+
+    function validarFinanciamento() {
+        var renda_familiar = Number(input_renda.value);
+        var valor_prestacao = Number(input_prestacao.value);
+
+        var proporcao_financiamento = (valor_prestacao / renda_familiar)*100;
+
+        div_msm.innerHTML = `A prestação corresponde a ${proporcao_financiamento}% da renda familiar. <br>`;
+
+       if (proporcao_financiamento > 30 ){
+        div_msm.innerHTML += `<b style="color: red">Será necessário complementar a renda familiar</b>.`;   
+       };
+    }
+</script>

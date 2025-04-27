@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umidade</title>
+</head>
+<body>
+    <h1> Insira a umidade atual do local (em %):  </h1>
+    <input type="number" id="input_umidade">
+    <br><br>
+
+
+    <button onclick="calcular()">VERIFICAR UMIDADE</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        
+        var umidade = Number(input_umidade.value);
+
+        if (umidade < 0 ) {
+            alert(`Erro: Umidade não pode ficar abaixo de 0`);
+        } else if (umidade < 12 ) {
+            div_msm.innerHTML = `Estado de Emergencia`;  
+        } else if (umidade <= 20 ) {
+            div_msm.innerHTML = `Estado de alerta`;
+        } else if (umidade <= 30 ) {
+            div_msm.innerHTML = `Estado de atenção`;  
+        } else if (umidade <= 100) {
+            div_msm.innerHTML = `Nenhum risco`;  
+        } else {
+            alert(`Erro: Umidade não pode ficar acima de 100`);
+        }
+
+    };
+</script>

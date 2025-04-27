@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira o sabor da Pizza:
+    <input type="text" id="input_sabor"> 
+    <br>
+
+    Insira o preço da pizza:
+    <input type="number" id="input_preco">  
+    <br>
+
+    Insira a quantidade de amigos que vão comer:
+    <input type="number" id="input_qtd">  
+    <br>
+
+    <button onclick="result()"> Ver valor por amigo </button>
+</body>
+</html>
+
+<script> 
+    function result() {
+        var sabor=input_sabor.value;
+        var preco=Number(input_preco.value);
+        var rateio=Number(input_qtd.value);
+        var taxaServ = preco*0.1;
+
+
+  
+        alert('Cada amigo vai colaborar com R$ '+ ((preco+taxaServ)/rateio) +  ' para a pizza de ' + sabor + '. Valor com taxa de 10%');
+       
+
+    }; 
+
+</script> 

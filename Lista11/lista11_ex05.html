@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira o seu login:
+    <input type="text" id="input_login">
+    <br>
+
+    Insira sua senha
+    <input type="password" id="input_senha">
+    <br>
+
+    <button onclick="validar()">validar</button>
+    <br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+//     1. Crie um programa o qual:
+// a) Solicite ao usuário um email
+// b) Enquanto ele digita, exiba abaixo se é um email válido ou não. Considere apenas que um email válido contém a letra '@' em algum lugar do texto
+
+    function validar () {
+        var login = input_login.value;
+        var senha = input_senha.value;
+
+        var tam_senha = senha.length;
+        
+        if ((login != '@SPTech.com.br') && (login.endsWith('@SPTech.com.br')) && (tam_senha > 4 )) {
+            alert("Cadastro válido");
+        } else {
+            alert('Cadastro inválido')
+        } 
+    }
+    
+
+</script>

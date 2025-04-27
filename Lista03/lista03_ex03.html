@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p> Escreva o valor da Passagem</p>
+    <input type="number" id=input_passagem> <br>
+
+    <p> Escreva quantas viagens será feita por mês</p>
+    <input type="number" id=input_viagens><br>
+
+    <button onclick=verEconomia()> Ver economia </button> 
+
+</body>
+</html>
+
+<script>
+function verEconomia () {
+    alert( "Você economizará R$" + ((input_passagem.value*input_viagens.value) / 2 ) + " por mês");
+};
+
+</script>

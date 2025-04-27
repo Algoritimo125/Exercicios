@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase Numerada</title>
+</head>
+<body>
+    <button onclick="dizer()">Diga algo sobre a matéria de Algoritmos</button>
+    <br>
+
+    <div id="div_msm"></div>
+    <br>
+</body>
+</html>
+<script>
+// Refaça o programa anterior de tal forma que, antes de cada frase apareça um contador. Ex: Se a frase digitada foi “Boa Tarde” a página ficará assim:   
+//    1. Boa tarde   
+//    2. Boa tarde   
+//    ...   
+//    7. Boa tarde  
+
+function dizer () {
+    for (var i=1; i<=7; i++ ) {
+        div_msm.innerHTML += `${i}. Me da um dez ai JP<br>`;
+    };
+}
+</script>

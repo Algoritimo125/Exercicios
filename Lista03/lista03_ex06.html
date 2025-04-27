@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p> Escreva um valor</p>
+    <input type="number" id=input_v1> <br>
+
+    <p> Escreva outro valor</p>
+    <input type="number" id=input_v2><br>
+
+    <button onclick=soma()> + </button> 
+    <button onclick=subtracao()> - </button> 
+    <button onclick=multiplicacao()> * </button> 
+    <button onclick=divisao()> / </button> 
+
+</body>
+</html>
+
+<script>
+function  soma() {
+    alert("A soma entre " + input_v1.value + " e " + input_v2.value + " é: " + (parseInt( input_v1.value) + parseInt (input_v2.value) ) );
+   
+};
+
+function subtracao(){
+    alert("A diferença entre " + input_v1.value + " e " + input_v2.value + " é: " + (input_v1.value - input_v2.value) );
+}
+
+function multiplicacao(){
+    alert("O produto entre " + input_v1.value + " e " + input_v2.value + " é: " + (input_v1.value * input_v2.value))
+}
+
+function divisao(){
+    alert("A razão entre" + input_v1.value + " e " + input_v2.value + " é: " + (input_v1.value / input_v2.value))
+}
+
+</script>

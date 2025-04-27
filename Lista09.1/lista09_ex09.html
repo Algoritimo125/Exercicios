@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. Pares no Intervalo</title>
+</head>
+
+<body>
+    <p>Insira sua numero</p>
+    <input type="number" id="input_numero">
+    <br><br>
+
+    <button onclick="calcular()">S2 Pares</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+<script>
+
+    // 9. Pares no Intervalo  
+    // Crie um programa o qual:
+    // a) Solicite um intervalo crescente de valores numéricos    
+    // b) Ao clicar num botão "S2 Pares"...   
+    // c) Exiba, debaixo do botão, todos os números pares contidos no intervalo.  
+
+    function calcular() {
+        var numero = Number(input_numero.value);
+        var cont = 0;
+        var mensagem = ``;
+
+        while (cont < numero) {
+            var resto = cont % 2;
+            if (resto == 0) {
+                mensagem += `${cont}<br>`
+            }
+            cont ++;
+        }
+
+        div_msm.innerHTML = mensagem;
+    }
+</script>

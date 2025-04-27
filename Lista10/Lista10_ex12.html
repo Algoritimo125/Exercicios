@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressar amor</title>
+</head>
+<body>
+    <label>
+        <h3>Insira o nome da pessoa que mais ama:</h3>
+        <input type="text" id="input_pessoa">
+    </label>
+    <br>
+
+    <label>
+        <h3> Inisra o quanto ama essa pessoa</h3>
+        <input type="number" id="input_qtd">
+    </label>
+    <br>
+
+    <button onclick="exibir()">Expressar amor</button>
+    <br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+// Crie um programa o qual:
+// a) Pergunte o nome da pessoa que o usuário mais ama na vida;  
+// b) Pergunte o quanto o usuário a ama (um número inteiro);  
+// c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")   
+//       1 - Lady Gaga, eu te amo! Sempre lembre disso!   
+//       2 - Lady Gaga, eu te amo! Sempre lembre disso!   
+//       3 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+    function exibir () {
+        var pessoa = input_pessoa.value;
+        var qtd = Number(input_qtd.value);
+        var mensagem = '';
+
+        for (var i = 1; i <= qtd; i++) {
+            mensagem += `${i} - ${pessoa}, eu te amo! Sempre lembre disso<br>`;
+        };
+
+        div_msm.innerHTML = mensagem;
+    }
+</script>

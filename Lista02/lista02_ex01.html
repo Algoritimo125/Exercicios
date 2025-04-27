@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div>
+        <text> Nome do time</text>
+        <input type="text" id='input_ntime'>
+        <br>
+
+        <text> Quantidade de titulos</text>
+        <input type="text" id="input_titulos">
+        <br>
+
+        <button onclick="informações()"> amo meu time </button>
+
+        <br>
+
+    </div>
+
+    <div> 
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex01.html">
+            pag 1 
+        </a>
+        <br>
+
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex02.html">
+            pag 2 
+        </a>
+        <br>
+       
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex03.html">
+            pag 3 
+        </a>
+        <br>
+
+        <a 
+        href="file:///C:/Users/Aluno/Documents/aula01-js/Exercicios/lista02_ex04.html">
+            pag 4 
+        </a>
+        <br>
+    </div>
+</body>
+</html>
+
+<script>
+function informações() {
+
+    alert('O time ' + input_ntime.value + " tem " + input_titulos.value + 'titulos');
+
+};
+
+</script>

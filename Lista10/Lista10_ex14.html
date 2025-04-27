@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de Musculação</title>
+</head>
+<body>
+    <label> 
+        <h3>você treina a cada quantos dias?</h3>
+        <input type="number" id="input_intervalo">
+    </label>
+    <br>
+
+    <button onclick="exibir()">Exibir rotina mensal</button>
+
+    <div id="div_msm"></div>
+</body>
+</body>
+</html>
+
+<script>
+// Crie um programa o qual
+// a) Pergunte de quantos em quantos dias o usuário faz musculação (é só uma informação, só 1 número, ok?)   
+// b) Ao clicar em "Exibir rotina mensal", mostre uma sequência de 30 frases, como neste exemplo:   
+//          Dia 1 - Musculação   
+//          Dia 2 - Comer, dormir etc   
+//          Dia 3 - Comer, dormir etc   
+//          Dia 4 - Musculação   
+//          Dia 5 - Comer, dormir etc   
+//          Dia 6 - Comer, dormir etc   
+//          Dia 7 - Musculação   
+//          ...   
+//          Dia 30 - Comer, dormir etc   
+// O Dia 1 sempre é de "Musculação"   
+// Considere que, nesse exemplo acima, o usuário informou 3 no item a)   
+    function exibir () {
+        var intervalo = Number(input_intervalo.value);
+        var mensagem = '';
+        var dia_musc = 1;
+        
+        for (var dia=1; dia <= 30; dia++) {
+            if (dia == dia_musc) {
+                mensagem += `Dia ${dia} - Musculação<br>`;
+                dia_musc += intervalo;
+            } else {
+                mensagem += `Dia ${dia} - Comer, dormir etc<br>`;
+            }
+            
+        }
+        div_msm.innerHTML = mensagem;
+    }
+
+</script>

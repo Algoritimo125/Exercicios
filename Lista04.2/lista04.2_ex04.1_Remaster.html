@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA O VALOR DA PIZZA: 
+    <br>
+    <input type="number" id="input_v_Pizza"><!-- manter padrão snake iniciado-->
+    <br><br>
+
+    INSIRA QUANTOS AMIGOS ESTÃO REUNIDOS: 
+    <br>
+    <input type="number" id="input_qtd_Amigos"><!-- manter padrão snake iniciado-->
+    <br><br>
+
+    <button onclick="validar_preco_pizza()"> ROLA A PIZZA? </button> 
+    <br><br>
+
+    <div id="div_msm"> </div>
+
+</body>
+</html>
+
+<script>  
+    // nome da dunção no infinitivo - manti o padrão também 
+    function validar_preco_pizza() {
+
+        var valor_pizza = Number(input_v_Pizza.value); //padrão snake e adicionei a tipagem var para indicar que não é variavél global
+        var qtd_amigos = Number(input_qtd_Amigos.value); //padrão snake e adicionei a tipagem var para indicar que não é variavél global
+
+        rateio = valor_pizza/qtd_amigos ;
+        
+        if (qtd_amigos > 1 ) {
+            // não é necessario validaçãao menor que 20 pois a mensagem sempre vai aparecer
+            div_msm.innerHTML = `Cada amigo vai pagar R$${rateio} pela pizza.`;
+            if(rateio > 20) {
+                div_msm.innerHTML += `Deu ruim! Pizza muito cara!`; //linha para manter o valor da div que sempre vai aparecer e adicionar mais um valor, para poder economizar linhas 
+            };
+        
+        } if (qtd_amigos <= 1) {
+            div_msm.innerHTML = `Erro: É necessario ter mais de uma pessoa nessa reunião.`;
+        };
+    }
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A NOTA 1: 
+    <br>
+    <input type="number" id="input_n1">
+    <br>
+    <br>
+
+    INSIRA A NOTA 2: 
+    <br>
+    <input type="number" id="input_n2">
+    <br>
+    <br>
+
+
+    <button onclick="result()"> VERIFICAR SITUAÇÃO </button> 
+    <br>
+    <br>
+
+    <div id="div_msm"> </div>
+
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        nota_1 = Number(input_n1.value);
+        nota_2 = Number(input_n2.value);
+
+        media = (nota_1 + nota_2)/2 ;
+        
+        if (media < 6 ) {
+                div_msm.innerHTML = `Tente outra vez...`;
+            } else {
+                div_msm.innerHTML = `Parabens, aprovado!`;
+            };
+    }
+</script>

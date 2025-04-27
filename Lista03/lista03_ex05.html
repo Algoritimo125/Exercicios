@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p> Escreva seu nome</p>
+    <input type="text" id=input_nome> <br>
+    
+    <p> Escreva sua nota da avaliação continuada</p>
+    <input type="number" id=input_continuada> <br>
+
+    <p> Escreva sua nota da avaliação semestral</p>
+    <input type="number" id=input_semestral><br>
+
+
+    <button onclick=media()> Ver média </button> 
+
+</body>
+</html>
+
+<script>
+function media () {
+    alert("A média de " + input_nome.value + " será de " + ((input_continuada.value*0.4) + (input_semestral.value*0.6)) );
+};
+
+</script>

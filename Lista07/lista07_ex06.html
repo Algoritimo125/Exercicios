@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de cansaço do aluno</title>
+</head>
+<body>
+    <h1>Calculadora de cansaço do aluno SPTech</h1>
+    
+    <h2> Meio de transporte </h2>
+    <input 
+        type="text"    
+        id="input_transporte" 
+        placeholder="Ex: Ônibus, Metrô, Carro, Bicicleta, Uber"
+    >
+    <br><br>
+
+    <button onclick="calcular()">Calcular cansaço</button>
+    <br><br>
+
+</body>
+</html>
+
+<script>
+//     6. Calculadora de Cansaço do Aluno SPTech
+// Crie um programa o qual: 
+// a) Tenha o seguinte texto no topo: 
+//     "Calculadora de cansaço do aluno SPTech" 
+// b) Tenha o texto "Meio de transporte" e uma input para o usuário inserir o meio de transporte dele, podendo ser: 
+//     Ônibus 
+//     Metrô 
+//     Carro 
+//     Bicicleta 
+//     Uber 
+// c) Tenha o botão "Calcular cansaço" que ao clicar mostrar em um alerta o nível de cansaço do usuári. 
+// d) Se o meio de transporte escolhido for "Carro" OU "Uber", exiba em um alert: "Tá tranquilo..." 
+// e) Se o meio de transporte escolhido for "Metrô" OU "Ônibus", exiba em um alert: "Um pouco cansado". 
+// f) Se o meio de transporte escolhido for "Bicicleta", exiba em um alert: "Vish... vive cansado." 
+    function calcular() {
+        var transporte = input_transporte.value;
+        var mensagem = '';
+        
+        if (transporte == 'Carro' || transporte == 'Uber') {
+            mensagem = "Tá tranquilo...";  
+        } else if (transporte == 'Metrô' || transporte == 'Ônibus') {
+            mensagem = "Um pouco cansado";   
+        } else if (transporte == 'Bicicleta') {
+            mensagem = "Vish... vive cansado.";
+        } else {
+            mensagem = 'Error: valores inválidos. Verifique se a palavra começa com letra maiúscula e se está escrita corretamente.' 
+        }
+
+        alert(mensagem);
+
+    };
+</script>

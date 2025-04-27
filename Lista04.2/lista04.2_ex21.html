@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A SUA META DE ECONOMIA: 
+    <br>
+    <input type="number" id="input_economia">
+    <br>
+    <br>
+
+    INSIRA QUANTO VOCÊ TEM GUARDADO: 
+    <br>
+    <input type="number" id="input_guardado">
+    <br>
+    <br>
+
+    <button onclick="result()"> ANALISAR ECONOMIA </button> 
+    <br>
+    <br>
+
+    <div id="div_msm"> </div>
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        var meta = Number(input_economia.value);
+        var poupanca = Number(input_guardado.value);
+        
+        var diferenca = meta - poupanca;
+
+        if (poupanca < meta ) {
+            div_msm.innerHTML = `Força! Ainda em busca da meta! Falta R$${diferenca} `;
+            
+        } else {
+            div_msm.innerHTML = `Parabéns, meta alcançada!`;
+            
+            if (poupanca > meta ) {
+            div_msm.innerHTML += `<br>Meta ultrapassada em R$${-(diferenca)}`;
+            }
+        };
+    };
+</script>

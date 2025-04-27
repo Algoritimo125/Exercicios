@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a quantidade de votos que o "Candidato A" teve na eleição:
+    <input type="number" id="input_cA"> 
+    <br>
+
+    Insira a quantidade de votos que o "Candidato B" teve na eleição:
+    <input type="number" id="input_cB">  
+    <br>
+
+    Insira a quantidade de votos brancos que houveram na eleição:
+    <input type="number" id="input_brancos">  
+    <br>
+
+    Insira a quantidade de votos nulos que houveram na eleição:
+    <input type="number" id="input_nulos"> 
+    <br>
+
+    <button onclick="result()"> Resultado da eleição </button>
+</body>
+</html>
+
+<script> 
+    function result() {
+    
+        var candidatoA = Number(input_cA.value);
+        var candidatoB = Number(input_cB.value);
+        var invalidos = Number(input_brancos.value) + Number(input_nulos.value)
+        var totalVotos = candidatoA + candidatoB + invalidos;
+
+        var pCandidatoA = (candidatoA * 100)/totalVotos; //calculando porcentagens do todo
+        var pCandidatoB = (candidatoB * 100)/totalVotos; //calculando porcentagens do todo
+        var pInvalidos = (invalidos * 100)/totalVotos;  //calculando porcentagens do todo
+
+        mensagem = `
+        Total de votos: ${totalVotos};
+        Candidato A: ${pCandidatoA} % (${candidatoA} votos);
+        Candidato B: ${pCandidatoB} % (${candidatoB} votos);
+        Invalidos:${pInvalidos} % (${invalidos} votos');
+        `
+        
+        alert(mensagem);
+
+    }; 
+
+</script> 

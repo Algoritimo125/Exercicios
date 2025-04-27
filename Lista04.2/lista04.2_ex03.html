@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA A PRIMEIRA NOTA: 
+    <br>
+    <input type="number" id="input_nota1">
+    <br><br>
+
+    INSIRA A SEGUNDA NOTA: 
+    <br>
+    <input type="number" id="input_nota2">
+    <br><br>
+
+    INSIRA A TERCEIRA NOTA: 
+    <br>
+    <input type="number" id="input_nota3">
+    <br><br>
+
+    <button onclick="result()"> ANALISAR DESEMPENHO </button> 
+    <br><br>
+
+    <div id="div_msm"> </div>
+
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        nota1 = Number(input_nota1.value)
+        nota2 = Number(input_nota2.value);
+        nota3 = Number(input_nota3.value);
+
+        media = (nota1 + nota2 + nota3)/3;
+        
+        if(media <= 9.4 ) {
+            div_msm.innerHTML = `Sua média foi de ${media}.`;
+        } if(media > 9.4) {
+            div_msm.innerHTML = `Sua média foi de ${media}. <br>` 
+            + 
+            `Parabéns, você é fora de série!`;
+        };
+        
+    }; 
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacidade Flexível</title>
+</head>
+
+<body>
+    <label>
+        <h3>Insira quantos pessoas irão entrar no carro</h3>
+        <input type="number" id="input_qtd_pessoas">
+    </label>
+    <br>
+
+    <label>
+        <h3>Insira quantas pessoas o carro suporta</h3>
+        <input type="number" id="input_suporte">
+    </label>
+    <br>
+
+    <button onclick="exibir()">#Partiu Carona</button>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+
+<script>
+    // Incremente a questão anterior de tal forma que:   
+    // a) Também tenha um campo no qual o usuário indique a capacidade de passageiros que o veículo suporta   
+
+    // b) Ao clicar no botão, as frases só começam a mostrar que o passageiro terá que esperar quando a capacidade indicada em a) for excedida.  
+
+
+    function exibir() {
+        var qtd_pessoas = Number(input_qtd_pessoas.value);
+        var suporte = Number(input_suporte.value);
+        var mensagem = '';
+
+        if (qtd_pessoas == 0 || suporte == 0) {
+            if (qtd_pessoas == 0) {
+                alert ("Todo mundo dormindo")
+            }
+            if (suporte == 0) {
+                alert("Vamo juntar dinheiro e comprar um carro?🧐")
+            }
+        } else {
+            for (i = 1; i <= qtd_pessoas; i++) {
+                if (i <= suporte) {
+                    mensagem += `<br>Entrou o ${i}º passageiro`;
+                    if (i == 1) {
+                        mensagem += ` (que é o(a) motorista)`;
+                        if (qtd_pessoas == 1) {
+                            alert("Viagem será solo");
+                        }
+                    }
+                } else {
+                    mensagem += `<br>O ${i}º passageiro terá que esperar!`;
+                }
+            }
+            div_msm.innerHTML = mensagem;
+        }
+
+    }
+</script>

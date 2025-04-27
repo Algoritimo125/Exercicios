@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentimento</title>
+</head>
+<body>
+    <h1> Insira como está se sentindo hoje: (feliz, bravo, triste, surpreso ou cansado)  </h1>
+    <input type="text" id="input_sentimento">
+    <br>
+
+    <button onclick="show()">MOSTRAR HUMOR</button>
+    <br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+    function show() {
+        
+        var humor = input_sentimento.value;
+
+        if (humor == 'feliz') {
+            div_msm.innerHTML = `😊`;  
+        } else if (humor == 'bravo') {
+            div_msm.innerHTML = `😡`;
+        } else if (humor == 'triste') {
+            div_msm.innerHTML = `😢`;
+        } else if (humor == 'surpreso') {
+            div_msm.innerHTML = `😲`;
+        } else if (humor == 'cansado') {
+            div_msm.innerHTML = `😴`;
+        } else {
+            div_msm.innerHTML = `Erro: Insira um valor válido`;
+        }
+
+    };
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    insira um valor para mostrar a tabuada:
+    <input type="number" id="input_tabuada">
+    <br>
+    <button onclick="tabuada()"> Mostrar tabuada </button>
+
+</body>
+</html>
+
+<script>  
+
+    function tabuada() {
+
+        var ntabuada = Number(input_tabuada.value); //coleta o valor da tabuada
+
+        mensagem = `
+        ${ntabuada} * 0 = ${ (0 * ntabuada) }
+        ${ntabuada} * 1 = ${ (1 * ntabuada) }
+        ${ntabuada} * 2 = ${ (2 * ntabuada) }
+        ${ntabuada} * 3 = ${ (3 * ntabuada) }
+        ${ntabuada} * 4 = ${ (4 * ntabuada) }
+        ${ntabuada} * 5 = ${ (5 * ntabuada) }
+        ${ntabuada} * 6 = ${ (6 * ntabuada) }
+        ${ntabuada} * 7 = ${ (7 * ntabuada) }
+        ${ntabuada} * 8 = ${ (8 * ntabuada) }
+        ${ntabuada} * 9 = ${ (9 * ntabuada) }      
+        `;
+
+        alert(mensagem);
+
+    }; 
+</script>

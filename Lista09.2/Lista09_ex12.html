@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressar amor</title>
+</head>
+<body>
+    <p>Inisira o nome da pessoa que mais ama</p>
+    <input type="text" id="input_nome">
+    <br><br>
+
+    <p>Insira o quanto ama</p>
+    <input type="number" id="input_qtd">
+    <br><br>
+
+    <button onclick="expessar()"> Expresar amor</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+
+</body>
+</html>
+<script>
+    // 12. Expressar amor
+//     Crie um programa o qual:
+// a) Pergunte o nome da pessoa que o usuário mais ama na vida;  
+// b) Pergunte o quanto o usuário a ama (um número inteiro);  
+// c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")   
+//       1 - Lady Gaga, eu te amo! Sempre lembre disso!   
+//       2 - Lady Gaga, eu te amo! Sempre lembre disso!   
+//       3 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+function expessar (){
+    var nome = input_nome.value ;
+    var qtd = input_qtd.value;
+    var num = 1;
+    var mensagem = ``;
+
+    if (qtd % 1 == 0){
+        while (qtd > 0 ) {
+            mensagem += `${num} - ${nome}, eu te amo! Sempre lembre disso! <br>`;
+            qtd--;
+            num++;
+        }
+        div_msm.innerHTML = mensagem
+    } else {
+        alert('Só numeros inteiros bro');
+    }
+
+}
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Corrida de Voltas</title>
+</head>
+
+<body>
+    <p>Insira a cor do carro:</p>
+    <input type="text" id="input_cor" placeholder="Ex: Preto">
+    <br><br>
+
+    <p>Insira quantas voltas o carro irá fazer:</p>
+    <input type="number" id="input_voltas">
+    <br><br>
+
+    <button onclick="calcular()">Iniciar corrida</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+<script>
+    // 10. Corrida de Voltas
+    // Crie um programa o qual:
+    // a) Pergunte ao usuário quantas voltas um carro dará numa corrida   
+    // b) Ao clicar num botão "Iniciar corrida!"...   
+    // c) Exiba, debaixo do botão, frases como estas:   
+    //        Carro dando a 1ª volta   
+    //        Carro dando a 2ª volta   
+    //        Carro dando a 3ª volta   
+    // d) Até que o carro "termine" a corrida. Nesse caso, exiba abaixo de tudo, somente 1 vez, a frase "Corrida finalizada!"   
+
+
+    function calcular() {
+        var voltas = Number(input_voltas.value);
+        var cor = input_cor.value;
+        var cont = 0;
+
+        var mensagem = ``;
+
+        if (cor != '') {
+            while (cont < voltas) {
+                cont++;
+                mensagem += `Carro ${cor} dando a ${cont}ª volta<br>`;
+            };
+
+            mensagem += `Corrida finalizada`;
+
+            div_msm.innerHTML = mensagem;
+
+        } else {
+            alert('Insira uma cor de carro.')
+        }
+    }
+</script>

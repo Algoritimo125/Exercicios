@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INFORME O SEU SALDO DA CONTA:
+    <input type="text" id="input_saldo">
+    <br><br>
+    
+    <button onclick="calcular()"> VERIFICAR FINANÇAS</button>
+    <br><br>
+    <div id="div_msm"></div>    
+
+</body>
+</html>
+<script>
+    function calcular (){
+        var saldo = Number(input_saldo.value);
+        if (saldo == 0) {
+            div_msm.innerHTML = `Conta zerada!`;    
+        }if (saldo >0) {
+            div_msm.innerHTML = `<span style="color: blue"> Saldo positivo! :)</span>`;
+        }if (saldo < 0) {
+            div_msm.innerHTML = `<span atyle="color: red"> Está devendo! </span>`;
+        }   
+    };
+</script>

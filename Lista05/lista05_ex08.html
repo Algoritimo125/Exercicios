@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de Calorias</title>
+</head>
+<body>
+    <h1> Insira sua meta de economia:  </h1>
+    <input type="number" id="input_economia">
+    <br>
+
+    <h1> Inisira quanto tem guardado:  </h1>
+    <input type="number" id="input_poupanca">
+    <br>
+
+    <button onclick="calcular()">ANALISAR ECONOMIA...</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        
+        var economia = Number(input_economia.value);
+        var poupanca = Number(input_poupanca.value);
+
+        if (economia == poupanca) {
+            div_msm.innerHTML = `Parabéns, meta alcançada!`;  
+        } else if (poupanca > economia) {
+            div_msm.innerHTML = `Meta ultrapassada em R$ ${(poupanca - economia)}`;
+        } else {
+            div_msm.innerHTML = `Força! Ainda em busca da meta! Falta R$ ${(economia - poupanca)}`;
+        }
+
+    };
+</script>

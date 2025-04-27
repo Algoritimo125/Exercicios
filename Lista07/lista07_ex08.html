@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critérios de Preferência</title>
+</head>
+<body>
+    <h1> Nome da empresa </h1>
+    <input 
+        type="text"     
+        id="input_nome"     
+        placeholder="Ex: Atos"
+    >
+    <br>
+
+    <h1> Valor da bolsa(R$) </h1>
+    <input 
+        type="number"     
+        id="input_val_bolsa"     
+        placeholder="Ex: 2000"
+    >
+    <br>
+
+    <h1> Valor do VR(R$/dia) </h1>
+    <input 
+        type="number"     
+        id="input_val_vr"     
+        placeholder="20"
+    >
+    <br>
+
+    <h1> Tempo de deslocamento entre empresa e a faculade(min) </h1>
+    <input 
+        type="number"     
+        id="input_temp"     
+        placeholder="30"
+    >
+    <br><br>
+
+    <button onclick="calcular()">É preferida? </button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+//     8. Critérios de Preferência de Augusto Bivio
+// Augusto Bivio é aluno SPTech e bolou um critério para indicar em  quais empresa teria preferência em ir trabalhar. Seus critérios são: A bolsa deve ser pelo menos 1800 ou o VR pelo menos 20 ou deve ficar a no máximo 30 minutos de tempo de deslocamento da faculdade. Se um desses 3 critérios for ok, a empresa está entre suas preferências. Assim, crie um programa o qual: 
+// a) Solicite o nome da empresa 
+// b) Solicite o valor da bolsa da empresa 
+// c) Solicite o valor do VR da empresa 
+// d) Solicite o tempo de deslocamento da empresa para a SPTech 
+// e) Ao clicar em "É preferida?", mostre uma dessas mensagens na própria página, abaixo do botão: 
+//    "A empresa X é uma de suas preferências", caso a empresa atenda a pelo menos um dos critérios aqui explicados  
+//    "A empresa X está fora da sua lista", caso contrário 
+    function calcular() {
+        var nome = input_nome.value;
+        var val_bolsa = Number(input_val_bolsa.value);
+        var val_vr = Number(input_val_vr.value);
+        var temp = Number(input_temp.value);
+
+        var mensagem = ``;
+        
+        if (val_bolsa >= 1800 || val_vr >= 20 || temp <= 30) {
+            mensagem = `A empresa ${nome} é uma de suas preferências`
+        } else {
+            mensagem = `A empresa ${nome} está fora da sua lista`; 
+        }
+                
+        div_msm.innerHTML = mensagem;  
+    };
+</script>

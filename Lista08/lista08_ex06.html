@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desempenho Escolar</title>
+</head>
+<body>
+    <p>Insira a nota</p>
+    <input type="number" id="input_nota">
+    <br><br>
+
+    <p>Insira a frequencia</p>
+    <input type="number" id="input_frequencia">
+    <br><br>
+
+    <button onclick="calcular()"> Analisar aluno </button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+<script> 
+// 6. Desempenho Escolar: O Aluno Foi Aprovado?
+// Crie um programa que avalie o desempenho de um aluno, o qual: 
+// a) Solicite a nota e a frequência do aluno 
+// b) Ao clicar em "Analisar aluno", faça as seguintes ações...
+
+// c) Caso a nota não seja válida, ou seja, caso não esteja entre 0 e 10, exiba um alert "Onde já se viu nota <0 ou >10?!" e limpe qualquer outro resultado que já estiver aparecendo na tela 
+// d) Caso a frequência não seja válida, ou seja, caso não esteja entre 0 e 100, exiba um alert "Onde já se viu frequência <0 ou >100?!" e limpe qualquer outro resultado que já estiver aparecendo na tela 
+
+// e) Caso a nota estiver entre 0 e menor que 6, exiba na tela essa frase: "Aluno ficou abaixo da média" 
+// f) Caso a nota estiver entre 6 e 8, exiba na tela essa frase: "Aluno ficou na média" 
+// g) Caso a nota estiver entre mais que 8 e 10, exiba na tela essa frase: "Aluno acima da média" 
+// h) Caso o aluno tiver frequência a partir de 75, exiba na tela "Aluno aprovado por frequência" ou "Aluno reprovado por frequência", em caso contrário 
+    function calcular() {
+
+        var nota = input_nota.value;
+        var frequencia = input_frequencia.value;
+        var mensagem = '';
+
+        if ((nota < 0 || nota > 10) || (frequencia < 0 || frequencia > 100)) {
+                mensagem = '';
+            if (nota < 0 || nota > 10) {
+                alert('Onde já se viu nota <0 ou >10?!');
+            } else {
+                alert('Onde já se viu frequencia <0 ou >100?!');
+            }
+        } else if (frequencia >= 75) {
+            mensagem = 'Aluno aprovado por frequência'
+        } else if (frequencia < 75) {
+            mensagem = 'Aluno reprovado por frequência'
+        } else if (nota < 6) {
+            mensagem = `Aluno ficou abaixo da média`;
+        } else if (nota <= 8) {
+            mensagem = 'Aluno ficou na média'
+        } else {
+            smensagem = `Aluno acima da média`;
+        }
+    
+            div_msm.innerHTML = mensagem;
+
+    } 
+</script>

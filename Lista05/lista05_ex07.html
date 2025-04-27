@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de Calorias</title>
+</head>
+<body>
+    <h1> Inisira quantos pães franceses, você consome por dia:  </h1>
+    <input type="number" id="input_pao">
+    <br>
+    
+    <h1> Inisira quantos pacotes de bolacha recheada, você consome por dia:  </h1>
+    <input type="number" id="input_bolacha">
+    <br>
+
+    <h1> Inisira quantos copos de achocolatado, você consome por dia:  </h1>
+    <input type="number" id="input_copos">
+    <br>
+
+    <button onclick="calcular()">VERIFICAR KCAL</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+
+        var kcal_pao = 50;
+        var qtd_pao = Number(input_pao.value);
+        var total_kcal_pao = kcal_pao * qtd_pao;
+
+        var kcal_copos = 70;
+        var qtd_copos = Number(input_copos.value);
+        var total_kcal_copos = kcal_copos * qtd_copos;
+
+        var kcal_bolacha = 80;
+        var qtd_bolacha = Number(input_bolacha.value);
+        var total_kcal_bolacha = kcal_bolacha * qtd_bolacha;
+
+        var total_geral = total_kcal_bolacha + total_kcal_copos + total_kcal_pao;
+        
+        if (total_geral < 200) {
+            div_msm.innerHTML = `Parabéns, vai ficar em forma!`;  
+        } else if (total_geral <= 400) {
+            div_msm.innerHTML = `Cuidado, vai ficar menos saudável `;
+        } else {
+            div_msm.innerHTML = `Alerta crítico de saúde !!!`;
+        }
+
+    };
+</script>

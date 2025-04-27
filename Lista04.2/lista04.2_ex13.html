@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INFORME A NOTA 1:
+    <input type="number" id="input_n1">
+    <br><br>
+    INFORME A NOTA 2:
+    <input type="number" id="input_n2"></input>
+    <br><br>
+    <button onclick="mediar()"> VERIFICAR SITUAÇÃO</button>
+    <br><br>
+    <div id="div_msm"></div>    
+
+</body>
+</html>
+<script>
+    function mediar(){
+        var nota_1 = Number(input_n1.value);
+        var nota_2 = Number(input_n2.value)
+
+        var media = (nota_1 + nota_2)/2;
+
+        if (media<6){
+            alert(`Tente outra vez...`);
+        } else{
+            alert(`Parabens, aprovado!`)
+        };
+    };
+</script>

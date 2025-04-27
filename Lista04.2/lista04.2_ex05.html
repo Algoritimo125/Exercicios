@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INSIRA QUANTO KWh VOCÊ CONSOME POR MÊS: 
+    <br>
+    <input type="number" id="input_kwhMes">
+    <br>
+    <br>
+
+    <button onclick="result()"> CALCULAR CONTA DE LUZ </button> 
+    <br>
+    <br>
+
+</body>
+</html>
+
+<script>  
+
+    function result() {
+
+        consumoMes = Number(input_kwhMes.value);
+        valorLuz = consumoMes*0.85;
+        desconto = valorLuz * 0.10;
+        valorLuzDesconto = valorLuz - desconto;
+
+        
+        if (consumoMes >= 0 ) {
+
+            if(consumoMes >= 100 ) {
+                alert(`Valor da conta a ser Paga: ${valorLuz}.`);
+            } if(consumoMes < 100) {
+                alert(`Valor da conta a ser Paga: ${valorLuzDesconto}.`);
+            };
+        
+        } if (consumoMes < 0) {
+            alert(`Erro: número de consumo não opode ser negativo.`);
+        };
+    }
+</script>

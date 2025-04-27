@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   INSIRA SUA IDADE: <br>
+    <input type="number" id="input_idade">
+    <br>
+    <button onclick="checagem()"> Ir para festa </button>
+
+</body>
+</html>
+
+<script>  
+
+    function checagem() {
+
+        idade = Number(input_idade.value);
+
+        if (idade < 18) {
+            alert(`Pedir permissão pro responsável`);
+            permissao = true;
+            if (permissao == true) {
+                alert(`#partiuFesta`);
+            }; if (permissao == false) {
+                alert(`#nenecas`);
+            }
+        } if (idade >= 18) {
+            alert(`#partiuFesta`);
+        };
+  
+
+        
+
+    }; 
+</script>

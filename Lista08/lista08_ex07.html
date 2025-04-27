@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação Segura com Tentativas Limitadas </title>
+</head>
+<body>
+    <p>Insira o login</p>
+    <input type="text" id="input_login">
+    <br><br>
+
+    <p>Insira a senha</p>
+    <input type="password" id="input_senha">
+    <br><br>
+
+    <p>Insira uma informação pessoal (Data de nascimento ou Animal de estimação)</p>
+    <input type="text" id="input_info">
+    <br><br>
+
+    <button onclick="calcular()"> Autenticar </button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+</html>
+<script> 
+// 7. Autenticação Segura com Tentativas Limitadas
+// Melhore o exercício 4, de tal forma que: 
+// a) Sempre que ocorrer uma falha na autenticação, deve aparecer abaixo da frase de "Falha de autenticação" uma outra frase, como esta: 
+//             Você ainda tem 2 tentativa(s) 
+// b) A ideia é que o usuário tem 3 tentativas de autenticação. Sempre que errar novamente na autenticação, o "contador" de tentativas reduz em 1 na tela. 
+
+// c) Uma vez que se esgotarem as tentativas, deve surgir mais uma frase abaixo, que seria 
+//      Usuário BLOQUEADO! Procure seu gerente! 
+// d) Em caso de usuário bloqueado, não adianta nem tentar fazer uma autenticação com as credenciais corretas, que nada mais acontecerá 
+// e) Caso o usuário autentique com sucesso, sem que tenham sido queimadas as 3 tentativas, a mensagem de autenticação aparece normalmente e a frase com a quantidade de tentativas deve sumir da tela e deve ser "reiniciada" para as próximas falhas. 
+
+    var contador = 2;
+
+    function calcular() {
+
+        var login = input_login.value;
+        var senha = input_senha.value;
+        var info = input_info.value;
+        var mensagem = '';
+
+        if(contador > 0 && contador <= 3) {
+            if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')) {
+                contador = 0;
+                mensagem = 'Usuário autenticado';
+            } else {
+                mensagem = `Falha na autenticação <br>` +
+                `Você ainda tem ${contador} tentativa(s)`;
+                contador = contador - 1;
+            }   
+        } else {
+                mensagem = `Usuário BLOQUEADO! Procure seu gerente!` 
+        }
+
+        div_msm.innerHTML = mensagem;
+    }
+</script>

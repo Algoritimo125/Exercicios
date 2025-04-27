@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Preferências de Compras </title>
+</head>
+<body>
+    <p>Insira o tamanho da tela</p>
+    <input type="number" id="input_tam">
+    <br><br>
+
+    <p>Insira a cor</p>
+    <select id="select_cor"> 
+        <option>Preto</option>
+        <option>Prata</option>
+        <option>Azul</option>
+        <option>Vermelho</option>
+    </select>
+
+    <br><br>
+    
+    <button onclick="calcular()"> Será que ele gosta? </button>
+    <br><br>
+    
+    <div id="div_msm"></div>
+</body> 
+</html>
+<script> 
+// 2. Simulador de Preferências de Compras: Será que Robervaldo Gostaria?
+// Imagine que Robervaldo está buscando um novo celular. Ele tem algumas preferências específicas para a escolha de modelo.
+
+// Robervaldo prefere celulares com tela grande (acima de 6.5 polegadas) e que sejam da cor preta ou prata.
+// Com base nessas informações, crie um simulador no qual:
+// a) Solicite o tamanho da tela do celular encontrado.
+// b) Solicite a cor do celular encontrado, dentre as opções:
+// Preto
+// Prata
+// Azul
+// Vermelho
+
+// c) Ao clicar em "Será que ele gosta?", mostre, abaixo:
+// A imagem de uma pessoa feliz, caso as características do celular coincidam com as preferências de Robervaldo.
+// Ou a imagem de uma pessoa decepcionada, caso contrário.  
+function calcular() {
+        var tamanho = Number(input_tam.value);
+        var cor = select_cor.value;
+
+        var mensagem = ``;
+
+        if(tamanho > 6.5 && cor == 'Preto' ) {
+            mensagem = `<img src="https://www.infomoney.com.br/wp-content/uploads/2019/06/feliz-no-trabalho.jpg?w=900&quality=70&strip=all">`;
+        } else {
+            mensagem = `<img src="https://www.filantropia.ong/imagens/conteudo/OWI6O8ZKUUWULEUO4WO9/inspira-es-esta-decepcionado-com-as-pessoas-ao-seu-redor-por-marcio-zeppelini9871.png">`; 
+        }
+
+        div_msm.innerHTML = mensagem;
+    }
+</script>
