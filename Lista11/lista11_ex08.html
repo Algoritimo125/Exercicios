@@ -6,27 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    Insira um e-mail:
-    <input type="text" id="input_email" onkeyup="validar()">
+    Insira uma frase:
+    <input type="text" id="input_frase" onkeyup="exibir()">
     <br>
-
     <div id="div_msm"></div>
+
 </body>
 </html>
 
 <script>
-//     1. Crie um programa o qual:
-// a) Solicite ao usuário um email
-// b) Enquanto ele digita, exiba abaixo se é um email válido ou não. Considere apenas que um email válido contém a letra '@' em algum lugar do texto
+    function exibir () {
+        var frase = input_frase.value;
 
-    function validar () {
-        var email = input_email.value;
+        var frase_caractere = ``;
 
-        if (email.includes('@')) {
-            div_msm.innerHTML = `<span style="Color: green">Email válido</span>`;
-        } else {
-            div_msm.innerHTML = `<span style="Color: red">Email inválido</span>`
-        } 
+        for (var i=0; i<frase.length; i++){
+
+            frase_caractere += frase[i] + `<br>`;
+        }
+        div_msm.innerHTML = frase_caractere;
     }
     
 

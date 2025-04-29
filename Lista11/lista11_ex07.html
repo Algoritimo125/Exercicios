@@ -15,30 +15,27 @@
 </html>
 
 <script>
-//     1. Crie um programa o qual:
-// a) Solicite ao usuário um email
-// b) Enquanto ele digita, exiba abaixo se é um email válido ou não. Considere apenas que um email válido contém a letra '@' em algum lugar do texto
-
     function validar () {
         var senha = input_senha.value;
         var tam_senha = senha.length;
-        var avaliacao;
-        var box = '';
+        var caractere_senha;
+        var senha_forte = '';
 
         var mensagem = `Sua senha: ` + senha;
 
         for (var i = 0; i < tam_senha; i++) {
-                avaliacao = senha[i];
-            
-            if (avaliacao.toUpperCase() == "A") {
-                box += '@';
-            } else if ( avaliacao.toUpperCase() == "E") {
-                box += '3';
-
+                caractere_senha = senha[i];
+        
+            if (caractere_senha.toUpperCase() == "A") {
+                senha_forte += '@';
+            } else if ( caractere_senha.toUpperCase() == "E") {
+                senha_forte += '3';
+            } else {
+                senha_forte += caractere_senha;
             }
 
         }
-        mensagem += `<br>Mensagem recomendada: ${avaliacao}`
+        mensagem += `<br>Mensagem recomendada: ${senha_forte}`
 
         div_msm.innerHTML = mensagem;
     }
