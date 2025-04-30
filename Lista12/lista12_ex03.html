@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #div_msm{
+    width: 100px;
+    height: 100px;
+    box-shadow: 2px 3px 4px #000;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+<body>
+    <button onclick = "sortear()">jogar dado</button>
+    <br><br>
+    <div id="div_msm"></div>
+</body>
+</html>
+<script>
+    function sortear() {
+
+        var sortear = Math.random();
+
+        var dado_d20 = sortear * 20 + 1;
+
+        var valor_d20 = parseInt(dado_d20);
+
+        div_msm.innerHTML = `${valor_d20}`;
+
+       
+        
+    }
+</script>

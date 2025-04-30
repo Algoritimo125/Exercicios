@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+      height: 150px;
+      width: 150px;
+    }
+</style>
+<body>
+    
+    <button onclick="sortear()">Sortear time</button>
+    <br>
+    <div id="div_msm"></div>
+</body>
+</html>
+<script>
+    function sortear() {
+        var sortear = Math.random();
+
+        var times = parseInt(sortear * 4 + 1);
+
+        var corinthians = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsBxpHBaMZmuOGz8rTn76QUj4-VBkijTxDoA&s" alt="">`;
+        var santos = `<img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Santos_Logo.png" alt="">`;
+        var sao_paulo = `<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/2054px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png" alt="">`;
+        var palmeiras = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBDh_DMvqfil3mIYPldRCi33X8OrZXhOI_eg&s" alt="">`;
+
+        if (times == 1 ){
+           div_msm.innerHTML = corinthians;
+        } else if (times == 2 ) {
+            div_msm.innerHTML = santos;
+        } else if (times == 3) {
+           div_msm.innerHTML = sao_paulo;
+        } else {
+           div_msm.innerHTML = palmeiras
+        }
+    }
+
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        height: 200px;
+    }
+</style>
+<body>
+    <button onclick = "sortear()">Sortear</button>
+    <br>
+    <div id="div_msm"></div>
+</body>
+</html>
+<script> 
+    
+    
+    
+    function sortear() {
+        var sortear_user = parseInt(Math.random() * 3);
+        var sortear_maq = parseInt(Math.random() * 3);
+
+        var pedra = `<img src="https://media.istockphoto.com/id/1452180511/pt/foto/big-stone-with-white-background.jpg?s=612x612&w=0&k=20&c=W8lJzDOhwkYtrOnWZ2RvLHm1_l3TRmkp8GmuKXO8ABA=" alt=""/>`
+        var tesoura = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswjTjbWULjiGe-RP-9xP0ZhtoVjjpo8jYEQ&s" alt=""/>`;
+        var papel  =`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa8Y0QdGD33Nnm_rkhSwLFWsF6BZVNPv_PVQ&s" alt=""/>`;
+        
+        var joken_po = [pedra, papel, tesoura];
+        
+        var vitoria_user = 0;
+        var vitoria_maq = 0;
+
+        div_msm.innerHTML = 'User' + joken_po[sortear_user];
+        div_msm.innerHTML += 'Maquina' + joken_po[sortear_maq];
+
+       if ( sortear_user == sortear_maq) {
+            div_msm.innerHTML += `<br> Empate`
+       } else {
+       
+       }
+      
+
+        div_msm.innerHTML += ``
+ 
+    
+
+      
+    }
+</script>
