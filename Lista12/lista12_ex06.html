@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick = "sortear()">Sortear</button>
+    <button onclick="sortear()">Sortear momento do dia</button>
     <br>
     <div id="div_msm"></div>
 </body>
+
 </html>
 <script>
     function sortear() {
-        var sortear = Math.random();
+        var sortear = parseInt(Math.random() * 24);
+        var mensagem = ``;
 
-        if (sortear > 0.5) {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 1`;
+        if (sortear <= 11) {
+            mensagem = `Bom dia, flor do dia, são ${sortear}h!`;
+        } else if (sortear <= 17) {
+            mensagem = `Boa tarde, já vai tarde! São ${sortear}h!`;
         } else {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 0`;
+            mensagem = `Boa noite, durma bem! São ${sortear}h!`;
         }
+
+        div_msm.innerHTML = mensagem;
     }
 </script>

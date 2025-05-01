@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        height: 150px;
+        width: 150px;
+    }
+</style>
+
+<body>
+
+    <button onclick="sortear()">Sortear time</button>
+    <br>
+    <div id="div_msm"></div>
+</body>
+
+</html>
+<script>
+
+    var vitoria_maq = 0;
+    var vitoria_user = 0;
+    var empates = 0
+
+    function sortear() {
+        var sortear = parseInt( Math.random() * 3 + 1);
+        var aleatorio_maq = parseInt( Math.random() * 3 + 1);
+        
+        var pedra = `<img src="https://media.istockphoto.com/id/1452180511/pt/foto/big-stone-with-white-background.jpg?s=612x612&w=0&k=20&c=W8lJzDOhwkYtrOnWZ2RvLHm1_l3TRmkp8GmuKXO8ABA=" alt=""/>`
+        var tesoura = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQswjTjbWULjiGe-RP-9xP0ZhtoVjjpo8jYEQ&s" alt=""/>`;
+        var papel  =`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa8Y0QdGD33Nnm_rkhSwLFWsF6BZVNPv_PVQ&s" alt=""/>`;
+        
+        // user
+        div_msm.innerHTML = 'Usuario';
+        if (sortear == 1) {
+            div_msm.innerHTML += pedra;
+        } else if (sortear == 2) {
+            div_msm.innerHTML += papel;
+        } else {
+            div_msm.innerHTML += tesoura;
+        }
+
+        // maquina
+        div_msm.innerHTML += 'Maquina';
+        if (aleatorio_maq == 1) {
+            div_msm.innerHTML += pedra;
+        } else if (aleatorio_maq == 2) {
+            div_msm.innerHTML += papel;
+        } else {
+            div_msm.innerHTML += tesoura;
+        }
+
+        //decidir vencedores
+        if (
+            aleatorio_maq == 1 && sortear == 3 ||
+            aleatorio_maq == 2 && sortear == 1 ||
+            aleatorio_maq == 3 && sortear == 2
+        ) {
+            div_msm.innerHTML += `<br> A maquina venceu`
+            vitoria_maq ++;
+        } else if (
+            sortear == 1  && aleatorio_maq == 3 ||
+            sortear == 2  && aleatorio_maq == 1 ||
+            sortear == 3  && aleatorio_maq == 2 
+        ) {
+            div_msm.innerHTML += `<br> O usuario venceu`
+            vitoria_user++;
+        } else {
+            div_msm.innerHTML += `<br> Empate`
+            empate++;
+        }
+
+        div_msm.innerHTML = `<br>
+        Empates: ${empate}. <br>
+        Vitorias jogador: ${vitoria_user}. <br>
+        Vitorias Maquina: ${vitoria_maq}.
+        `;
+    }
+
+</script>

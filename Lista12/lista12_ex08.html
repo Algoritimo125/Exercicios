@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick = "sortear()">Sortear</button>
+    <button onclick="sortear_nota()">Gerar uma nota de aluno entre 0 e 10</button>
     <br>
     <div id="div_msm"></div>
+
 </body>
+
 </html>
 <script>
-    function sortear() {
-        var sortear = Math.random();
+    var nota = 0;
+    var freq = 0;
+    var mensagem = '';
+    var situacao = true;
 
-        if (sortear > 0.5) {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 1`;
-        } else {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 0`;
+    function sortear_nota() {
+        var nota = parseInt(Math.random() * 11);
+
+        if(nota < 6) {
+            situacao = false
         }
+
+        mensagem = `
+        Nota: ${nota.toFixed(2)} 
+        <br><br>
+        <button onclick="sortear_freq()">Gerar uma frequência de aluno entre 0 e 100</button>
+        `;
+
+        div_msm.innerHTML = mensagem;
+
+    }
+
+    function sortear_freq() {
+        var freq = parseInt(Math.random() * 101);
+
+        if(freq < 75) {
+            situacao = false
+        }
+
+        mensagem += `
+        <br>Frequencia: ${freq.toFixed(2)} 
+        <br><br>
+        <button onclick="mostrar()">Ver Situação</button>
+        `;
+
+        div_msm.innerHTML = mensagem;
+    }
+
+    function mostrar() {
+    if (situacao) {
+        alert (`Aprovado`);
+    } else {
+        alert('Reprovado');
+    }
     }
 </script>

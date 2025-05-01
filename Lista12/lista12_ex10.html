@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick = "sortear()">Sortear</button>
+    <button onclick="sortear_1()">Dado Jogador 1</button>
+    <br>
+    <div id="dado_1"></div>
+    <br>    
+    
+    <button onclick="sortear_2()">Dado Jogador 2</button>
+    <br>
+    <div id="dado_2"></div>
+    <br>
+
+    <button onclick="mostrar()">Comparar resultado</button>
     <br>
     <div id="div_msm"></div>
 </body>
+
 </html>
 <script>
-    function sortear() {
-        var sortear = Math.random();
+    var valor_1 = 0;
+    var valor_2 = 0;
 
-        if (sortear > 0.5) {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 1`;
+    function sortear_1() {
+        valor_1 = parseInt(Math.random() * 6 + 1);
+        dado_1.innerHTML = `Jogador 1: ` + valor_1;
+    }
+
+    function sortear_2() {
+        valor_2 = parseInt(Math.random() * 6 + 1);
+        dado_2.innerHTML = `Jogador 2: ` + valor_2;
+    }
+
+    function mostrar() {
+        if (valor_1 > valor_2) {
+            div_msm.innerHTML = `Jogador 1 venceu`;
+        } else if (valor_2 > valor_1) {
+            div_msm.innerHTML = `Jogador 2 venceu`;
         } else {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 0`;
+            div_msm.innerHTML = `Empate`;
         }
     }
+
 </script>

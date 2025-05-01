@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    img {
+        height: 150px;
+        width: 150px;
+    }
+</style>
 <body>
-    <button onclick = "sortear()">Sortear</button>
+    <button onclick="sortear()">Ver a Lua</button>
     <br>
     <div id="div_msm"></div>
 </body>
+
 </html>
 <script>
     function sortear() {
-        var sortear = Math.random();
+        var sortear = Math.random() * 31 + 1;
 
-        if (sortear > 0.5) {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 1`;
+        var lua_cheia = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUcM9oCQCJetQPeu6_egEv-_mLVK9AiRjtVw&s" alt="">`;
+
+        var lua_minguante = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqLRDAddw3VIu3VAHmGaUK4VhcUHX3jh2QLg&s" alt="">`;
+
+        var lua_nova = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7y0gSndvMwRrKQvpY08b7yhEczP8DgS-4ag&s" alt="">`;
+
+        var lua_crescente = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB8iPV5BZL8CtZDLmUuSBZi8mqEFS2uy5EGQ&s" alt="">`;
+        
+        var msm = 
+        msm = `Temperatura sorteada: ${sortear.toFixed(0)} ºC<br>`;
+
+        if (sortear < 8) {
+            msm ="Lua nova<br>" + lua_nova;
+        } else if (sortear <= 16) {
+            msm = "Lua Cheia<br>" + lua_cheia;
+        } else if (sortear <= 22) {
+            msm = "Lua Mingunate<br>" + lua_minguante;
         } else {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 0`;
+            msm = "Lua Crescente<br>" + lua_crescente;
         }
+
+        div_msm.innerHTML = msm;
     }
 </script>

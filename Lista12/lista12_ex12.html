@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick = "sortear()">Sortear</button>
+    <button onclick="sortear()">Verificar media</button>
     <br>
     <div id="div_msm"></div>
 </body>
+
 </html>
 <script>
-    function sortear() {
-        var sortear = Math.random();
+    var media = 0;
+    var cofre = 0;
+    var cont = 0;
 
-        if (sortear > 0.5) {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 1`;
-        } else {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 0`;
+    function sortear() {
+        cont++;
+        var sortear = Math.random() * 5;
+        var mensagem = '';
+        cofre += sortear;
+        media = cofre / cont; 
+
+        if (sortear <= 0.5) {
+            mensagem = "Muito Triste 😭";
+        } else if (sortear <= 1.5) {
+            mensagem = "Meio Triste 😞";
+        } else if (sortear <= 3.5) {
+            mensagem = "Neutro 😐";
+        } else if (sortear <= 4.5) {
+            mensagem = "Feliz 😀";
+        } else if (sortear > 4.5) {
+            mensagem = "Muito Feliz 😁";
         }
+        div_msm.innerHTML =`Média geral: ${media}<br>` + mensagem;
     }
 </script>

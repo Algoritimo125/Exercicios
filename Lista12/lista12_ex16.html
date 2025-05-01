@@ -1,28 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick = "sortear()">Sortear</button>
+    Digite seu nome:
+    <input type="text" id="input_nome">
+    <br>
+    Digite seu numero da sorte:
+    <input type="number" id="input_num">
+    <br><br>
+
+    <button onclick="sortear()">Sortear</button>
     <br>
     <div id="div_msm"></div>
 </body>
+
 </html>
 <script>
-    function sortear() {
-        var sortear = Math.random();
+    var nome = 0;
+    var num_sorte = 0;
+    var validacao = false;
+    var cont = 0;
 
-        if (sortear > 0.5) {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 1`;
+    function sortear() {
+
+        validar();
+
+        if (validacao == false) {
+            alert('Numero deve estar entre 0 e 10');
         } else {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 0`;
+            var sortear = parseInt(Math.random() * 9 + 1);
+            cont++;
+            var mensagem = '';
+
+            if (sortear == num_sorte) {
+                mensagem = `"Parabéns, ${nome} você foi sorteado(a) após ${cont} sorteios!`;
+            }
+
+            div_msm.innerHTML = mensagem;
         }
+
+
+    }
+
+    function validar() {
+        nome = input_nome.value;
+        num_sorte = Number(input_num.value);
+
+        if (num_sorte > 0 && num_sorte <= 10) {
+            validacao = true;
+        }
+
     }
 </script>

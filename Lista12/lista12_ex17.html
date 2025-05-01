@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <button onclick = "sortear()">Sortear</button>
+    Digite seu nome:
+    <input type="text" id="input_nome">
+    <br>
+    Digite 1 numero da sorte:
+    <input type="number" id="input_num_1">
+    <br>
+    Digite 2 numero da sorte:
+    <input type="number" id="input_num_2">
+    <br>
+    Digite 3 numero da sorte:
+    <input type="number" id="input_num_3">
+    <br><br>
+
+    <button onclick="sortear()">Sortear</button>
     <br>
     <div id="div_msm"></div>
 </body>
+
 </html>
 <script>
-    function sortear() {
-        var sortear = Math.random();
+    var nome = 0;
+    var num_sorte = 0;
+    var validacao = false;
+    var cont = 0;
 
-        if (sortear > 0.5) {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 1`;
+    function sortear() {
+
+        validar();
+
+        if (validacao == false) {
+            alert('Numero deve estar entre 0 e 10');
         } else {
-            div_msm.innerHTML = `
-            ${sortear}<br>
-            Eu arredondaria para 0`;
+            var sortear = parseInt(Math.random() * 100 + 1);
+            cont++;
+            var mensagem = '';
+
+            if (
+                sortear == num_sorte_1 || 
+                sortear == num_sorte_2 || 
+                sortear == num_sorte_3 
+            ) {
+                mensagem = `"Parabéns, ${nome} o seu numero da sorte ${sortear} foi sorteado(a) após ${cont} sorteios!`;
+            }
+
+            div_msm.innerHTML = mensagem;
         }
+
+
+    }
+
+    function validar() {
+        nome = input_nome.value;
+        num_sorte_1 = Number(input_num_1.value);
+        num_sorte_2 = Number(input_num_2.value);
+        num_sorte_3 = Number(input_num_3.value);
+
+        if (
+            num_sorte_1 > 0 && num_sorte_1 <= 100 ||
+            num_sorte_2 > 0 && num_sorte_2 <=100 ||
+            num_sorte_3 > 0 && num_sorte_3 <=100 
+        ) {
+            validacao = true;
+        }
+
     }
 </script>
