@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Pesquise uma fruta
+    <input type="text" id="input_search">
+    <br>
+    <button onclick="Search()">Buscar</button>
+    <br><br>
+    <div id="div_msm"></div>
+</body>
+</html>
+
+<script>
+
+var lista_fruta = ['Banana', 'Pêra', 'Morango', 'Uva', 'Kiwi', 'Melancia', 'Bergamota', 'Laranja'];
+
+    function Search() {
+        var search = input_search.value;
+        var msm = `Não existe a fruta ${search} na lista.`
+
+        for (var i = 0; i < lista_fruta.length; i++) {
+            var comparacao = lista_fruta[i];
+            if (comparacao.toLowerCase() == search.toLowerCase()) {
+                msm = `  A fruta ${comparacao} existe na lista.`;
+                break;
+            } 
+        }
+
+        div_msm.innerHTML = msm;
+
+     
+    }
+    
+
+
+</script>

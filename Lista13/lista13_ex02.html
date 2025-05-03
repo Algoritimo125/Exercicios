@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Destino da viagem
+    <input type="text" id="input_destino">
+    <br>
+    <button onclick="Insert()">Adicionar</button>
+    <br><br>
+    <div id="div_msm"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var lista_destino = [];
+    var primeira_viagem = false;
+    var terceira_viagem = false;
+    var ultima_viagem = false;
+
+    function Insert() {
+        var destino = input_destino.value;
+        var msm = ``;
+
+        if (destino == '') {
+            alert('Campos não podem ser nulo')
+        } else {
+            lista_destino[lista_destino.length] = destino;
+            show()
+        }
+    }
+
+    function show() {
+
+        div_msm.innerHTML = `
+            <button onclick="(primeira_viagem=true, show())">Primeira viagem</button> <br>
+            <button onclick="(terceira_viagem=true, show())">Terceira viagem</button> <br>
+            <button onclick="(ultima_viagem=true, show())">Ultima viagem</button> <br><br>
+        `
+
+        if (primeira_viagem) {
+            var pri = lista_destino[0];
+            div_msm.innerHTML += 'Primeira destino: ' + pri;
+            primeira_viagem = false;
+        } else if (ultima_viagem) {
+            var ult = lista_destino[lista_destino.length - 1];
+            div_msm.innerHTML += 'ultimo destino: ' + ult;
+            ultima_viagem = false;
+        } else if (terceira_viagem) {
+            var ter = lista_destino[2];
+            if (ter === undefined) {
+                div_msm.innerHTML += 'Ainda não fez a terceira viagem';
+            } else {
+                div_msm.innerHTML += 'Terceiro destino: ' + ter;
+            }
+            terceira_viagem = false;
+        }
+
+    }
+</script>

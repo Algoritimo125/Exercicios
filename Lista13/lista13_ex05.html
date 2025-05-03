@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira os filmes que mais gosta por ordem decrescente (Mais gosta ao que menos gosta)
+    <br>
+    <input type="text" id="input_filme">
+    <br>
+    <button onclick="Insert()">Cadastrar Filme</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+
+<script>
+
+    var lista_filme = [];
+
+    function Insert() {
+        var filme = input_filme.value;
+
+        lista_filme[lista_filme.length] = filme;
+
+        Select();
+    }
+
+    function Select() {
+        var msm = ``;
+
+        msm += `Seu filme favorito: ${lista_filme[0]}<br>`;
+        if (lista_filme[2] === undefined) {
+            msm += `Ainda não existe<br>`;
+        } else {
+            msm += `Seu 3º filme favorito: ${lista_filme[2]}<br>`
+        }
+        msm += 'Total de filmes cadastrados: ' + lista_filme.length + `<br>`;
+        
+        div_msm.innerHTML = msm;
+    }
+
+
+
+</script>
