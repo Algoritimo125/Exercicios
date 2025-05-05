@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira nomes para cadastro
+    <br>
+    <input type="text" id="input_nome">
+    <br>
+    <button onclick="Insert()">Cadastrar nome</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+
+<script>
+
+    var lista_nome = [];
+
+    function Insert() {
+        var validacao = true;
+        var nome = input_nome.value;
+
+        for (var i = 0; i < lista_nome.length; i++) {
+            if (lista_nome[i].toUpperCase() == nome.toUpperCase()) {
+                validacao = false;
+                break;
+            }
+        }
+
+        if (validacao) {
+            lista_nome[lista_nome.length] = nome;
+            Select();
+        } else {
+            alert('nome já foi adicionado');
+        }
+
+    }
+
+    function Select() {
+        var msm = ``;
+
+        for (var i = lista_nome.length-1; i >= 0; i--) {
+        
+                msm += `${i + 1}º nome: ${lista_nome[i]}<br>`;
+        }
+
+        div_msm.innerHTML = msm;
+    }
+
+
+
+</script>

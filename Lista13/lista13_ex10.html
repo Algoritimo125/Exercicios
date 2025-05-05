@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o nome das linhas de ônibus que pegou durante a semana
+    <br>
+    <input type="text" id="input_bus">
+    <br>
+    <button onclick="Insert()">Gravar busão</button>
+    <br><br>
+
+    Pesquise uma linha
+    <br>
+    <input type="text" id="input_pesquisa">
+    <br>
+    <button onclick="Select_where()">Pesquisar</button>
+
+    <div id="div_msm"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    var lista_linha_bus = [];
+    var msm = ``;
+
+    function Insert() {
+        var validacao = true;
+        var linha_bus = input_bus.value;
+
+        lista_linha_bus[lista_linha_bus.length] = linha_bus;
+        Select();
+
+    }
+
+    function Select() {
+        
+        msm = '';
+
+        for (var i = lista_linha_bus.length - 1; i >= 0; i--) {
+            msm += `${i+1}º Linha: ${lista_linha_bus[i]}<br>`;
+        }
+
+        div_msm.innerHTML = msm;
+    }
+
+    function Select_where() {
+        var pesquisa = input_pesquisa.value;
+        var lista_historico = [];
+
+        for (var i = 0; i < lista_linha_bus.length; i++) {
+            if (pesquisa == lista_linha_bus[i]) {
+                lista_historico[lista_historico.length] = i+1;
+            }
+        }
+
+        if (lista_historico.length > 0) {
+           msm += `Você já pegou essa linha ${lista_historico.length} vezes, nessa ordem: ${lista_historico}`;
+        } else {
+            msm += "Você nunca pegou essa linha."
+        }
+        div_msm.innerHTML = msm;
+    }
+
+
+
+
+
+</script>

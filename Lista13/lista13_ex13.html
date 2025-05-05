@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Indique o resultado
+    <br>
+    <select name="" id="select_times">
+        <option value="Vitoria">Vitoria</option>
+        <option value="Empate">Empate</option>
+        <option value="Derrota">Derrota</option>
+    </select>
+    <br>
+    <button onclick="Insert()">Registrar jogo</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+
+<script>
+
+    var lista_jogo = [];
+
+    function Insert() {
+
+        var jogo = select_times.value;
+        
+        lista_jogo[lista_jogo.length] = jogo;
+
+        Select()
+
+
+    }
+
+    function Select() {
+        var msm = ``;
+
+        var num_partidas = lista_jogo.length;
+
+        var num_vitorias = 0;
+        var num_derrotas = 0;
+        var num_empate = 0;
+
+        var pontos = 0;
+        var max_pontos = num_partidas * 3;
+        
+        for (var i = 0; i < num_partidas; i++){
+            if(lista_jogo[i] == "Vitoria") {
+                num_vitorias ++;
+                pontos += 3
+            } else if (lista_jogo[i] == "Empate") {
+                num_empate++
+                pontos += 1;
+            } else{
+                num_derrotas++
+            }
+        }
+
+        var aproveitamento = (pontos*100)/max_pontos;
+        
+        msm = ` O time teve: ${num_vitorias} vitórias, ${num_empate} empates, ${num_derrotas} derrotas<br>  
+        Pontuação total: ${pontos}<br>
+
+        Aproveitamento: ${aproveitamento}%
+`
+       
+            div_msm.innerHTML = msm;
+    }
+
+
+
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o preço do produto
+    <br>
+    <input type="number" id="input_produto">
+    <br>
+    <button onclick="Insert()">Cadastrar</button>
+    <br><br>
+
+    <button onclick="Select()">Atualizar estoque</button>
+    <br><br>
+
+    <div id="div_msm"></div>
+</body>
+
+</html>
+
+<script>
+
+    var lista_produto = [];
+
+    function Insert() {
+        var produto = Number(input_produto.value);
+
+        lista_produto[lista_produto.length] = produto;
+    }
+
+    function Select() {
+        var msm = ``;
+        var soma_produto = 0;
+        
+        
+        for (var i = lista_produto.length-1; i >= 0; i--) {
+            
+        msm += `Produto nº ${i+1}: ${lista_produto[i]}<br>`;
+        
+        }
+        msm += `<br>Você tem ${lista_produto.length} produtos cadastrados em estoque<br>`;
+        
+        for (var i = 0; i < lista_produto.length; i++) {
+            soma_produto += lista_produto[i]
+        }
+        msm += `Seu estoque vale R$${soma_produto}`
+
+        div_msm.innerHTML = msm;
+    }
+
+
+
+</script>

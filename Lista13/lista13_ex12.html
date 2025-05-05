@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Cadastre o nome dos filhos
+    <br>
+    <input type="text" id="input_filho" placeholder="Ex: JP">
+    <br>
+    <button onclick="Insert()">Cadastrar filho</button>
+    <br><br>
+
+    <button onclick="Select()">Atuaizar familia</button>
+    <br><br>
+    <div id="div_msm"></div>
+</body>
+
+</html>
+
+<script>
+
+    var lista_filho = [];
+
+    function Insert() {
+        var validacao = true;
+        var filho = input_filho.value;
+
+        for (var i = 0; i < lista_filho.length; i++) {
+            if (lista_filho[i].toUpperCase() == filho.toUpperCase()) {
+                validacao = false;
+                break;
+            }
+        }
+
+        if (validacao) {
+            lista_filho[lista_filho.length] = filho;
+        } else {
+            alert('Não pode mais de 1 filho com o mesmo nome!');
+        }
+
+    }
+
+    function Select() {
+        var msm = ``;
+        var custo_particular = (lista_filho.length) * 3000;
+        var custo_publica = (lista_filho.length) * 1500;
+
+        msm = `Você tem ${lista_filho.length} filhos<br>`;
+            
+
+        msm += `Seu custo mensal será aproximadamente R$ ${custo_particular} se colocá-los em escola particular ou R$ ${custo_publica} se eles estudarem em escola pública<br>`
+
+        div_msm.innerHTML = msm;
+    }
+
+
+
+</script>
