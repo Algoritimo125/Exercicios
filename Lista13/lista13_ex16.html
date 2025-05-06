@@ -8,11 +8,15 @@
 </head>
 
 <body>
-    Insira os filmes que mais gosta por ordem decrescente (Mais gosta ao que menos gosta)
+    Nome do produto
+    <input type="text" id="input_nome">
     <br>
-    <input type="text" id="input_filme">
+    Preço da compra
+    <input type="text" id="input_preco">
     <br>
-    <button onclick="Insert()">Cadastrar Filme</button>
+    <button onclick="Insert()">Cadastrar</button>
+    <br><br>
+    <button onclick="Select()">Ver relatório de estoque</button>
     <br><br>
 
     <div id="div_msm"></div>
@@ -22,38 +26,51 @@
 
 <script>
 
-    var lista_filme = [];
+    var lista_nome = [];
+    var lista_preco = [];
 
     function Insert() {
-        var validacao = true;
-        var filme = input_filme.value;
+        var nome = input_nome.value;
+        var preco = Number(input_preco.value);
 
-        for (var i = 0; i < lista_filme.length; i++) {
-            if (lista_filme[i].toUpperCase() == filme.toUpperCase()) {
-                validacao = false;
-                break;
-            }
-        }
-
-        if (validacao) {
-            lista_filme[lista_filme.length] = filme;
-            Select();
+        if (preco == '' || nome == '') {
+            alert('Campos não podem ser nulos');
         } else {
-            alert('Filme já foi adicionado');
+            lista_nome[lista_nome.length] = nome;
+            lista_preco[lista_preco.length] = preco;
         }
+
 
     }
 
     function Select() {
         var msm = ``;
+        var max = 0;
+        var min = lista_preco[0];
+        var soma_produtos = 0;
+        var media = 0;
 
-        for (var i = 0; i < lista_filme.length; i++) {
-            if (i % 2 == 0) {
-                msm += `<span style="color: blue">${i + 1}º Filme: ${lista_filme[i]}<br></span>`;
-            } else {
-                msm += `<span style="color: red">${i + 1}º Filme: ${lista_filme[i]}<br></span>`;
+        for (var i = 0; i < lista_nome.length; i++) {
+            msm += `Produto ${i + 1}: ${lista_nome[i]}<br>`;
+            msm += `Preço de compra: R$${lista_preco[i]}. Vender por R$${lista_preco[i] * 1.25}<br>`;
+
+            if (max < lista_preco[i]) {
+                max = lista_preco[i];
             }
+            if (min > lista_preco[i]) {
+                min = lista_preco[i];
+            }
+
+            soma_produtos += lista_preco[i]
         }
+
+        media = soma_produtos / lista_preco.length;
+
+        msm += `
+            Produto mais caro: ${max};<br>
+            Produto mais barato: ${min};<br><br>
+            Total: ${soma_produtos};<br>
+            Media: ${media};        `
 
         div_msm.innerHTML = msm;
     }

@@ -8,11 +8,11 @@
 </head>
 
 <body>
-    Insira os filmes que mais gosta por ordem decrescente (Mais gosta ao que menos gosta)
+    Digite um nº qualquer
     <br>
-    <input type="text" id="input_filme">
+    <input type="text" id="input_numero">
     <br>
-    <button onclick="Insert()">Cadastrar Filme</button>
+    <button onclick="Insert()">Analisar histórico</button>
     <br><br>
 
     <div id="div_msm"></div>
@@ -22,38 +22,39 @@
 
 <script>
 
-    var lista_filme = [];
+    var lista_numero = [];
 
     function Insert() {
-        var validacao = true;
-        var filme = input_filme.value;
 
-        for (var i = 0; i < lista_filme.length; i++) {
-            if (lista_filme[i].toUpperCase() == filme.toUpperCase()) {
-                validacao = false;
-                break;
-            }
-        }
+        var numero = input_numero.value;
 
-        if (validacao) {
-            lista_filme[lista_filme.length] = filme;
-            Select();
-        } else {
-            alert('Filme já foi adicionado');
-        }
+        lista_numero[lista_numero.length] = numero;
+        Select();
 
     }
 
     function Select() {
         var msm = ``;
+        var maior = 0;
+        var menor = lista_numero[0];
 
-        for (var i = 0; i < lista_filme.length; i++) {
-            if (i % 2 == 0) {
-                msm += `<span style="color: blue">${i + 1}º Filme: ${lista_filme[i]}<br></span>`;
-            } else {
-                msm += `<span style="color: red">${i + 1}º Filme: ${lista_filme[i]}<br></span>`;
-            }
+        for (var i = 0; i < lista_numero.length; i++) {
+            msm += `${i + 1}º numero: ${lista_numero[i]}<br>`;
         }
+
+        for (var i = 0; i < lista_numero.length; i++) {
+
+            if (maior < lista_numero[i]) {
+                maior = lista_numero[i];
+            }
+            
+            if (menor > lista_numero[i]) {
+                menor = lista_numero[i]
+            }
+
+        }
+        msm += `Maior: ${maior}<br>`;
+        msm += `Menor: ${menor}<br>`;
 
         div_msm.innerHTML = msm;
     }

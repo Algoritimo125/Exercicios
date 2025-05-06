@@ -19,7 +19,15 @@
     <button onclick="Insert()">Registrar jogo</button>
     <br><br>
 
+    Indique qual jogo deseja saber o resultado
+    <input type="number" onkeyup="Select_partida()" id="input_partida">
+    <br><br>
+
     <div id="div_msm"></div>
+    <br>
+
+    <div id="div_msm_2"></div>
+
 </body>
 
 </html>
@@ -31,7 +39,7 @@
     function Insert() {
 
         var jogo = select_times.value;
-        
+
         lista_jogo[lista_jogo.length] = jogo;
 
         Select()
@@ -50,28 +58,44 @@
 
         var pontos = 0;
         var max_pontos = num_partidas * 3;
-        
-        for (var i = 0; i < num_partidas; i++){
-            if(lista_jogo[i] == "Vitoria") {
-                num_vitorias ++;
+
+        for (var i = 0; i < num_partidas; i++) {
+            if (lista_jogo[i] == "Vitoria") {
+                num_vitorias++;
                 pontos += 3
             } else if (lista_jogo[i] == "Empate") {
                 num_empate++
                 pontos += 1;
-            } else{
+            } else {
                 num_derrotas++
             }
         }
 
-        var aproveitamento = (pontos*100)/max_pontos;
-        
+        var aproveitamento = (pontos * 100) / max_pontos;
+
         msm = ` O time teve: ${num_vitorias} vitórias, ${num_empate} empates, ${num_derrotas} derrotas<br>  
         Pontuação total: ${pontos}<br>
 
         Aproveitamento: ${aproveitamento}%
 `
-       
-            div_msm.innerHTML = msm;
+
+        div_msm.innerHTML = msm;
+    }
+
+    function Select_partida() {
+        var msm = '';
+        var partida = Number(input_partida.value);
+
+        if (partida >= lista_jogo.length) {
+            msm = `Não foi cadastrado um ${partida}º jogo`
+        } else {
+            if(partida == ''){
+                msm = `No ${partida}º jogo, o time ` + lista_jogo[partida - 1];
+            }
+        }
+
+
+        div_msm_2.innerHTML = msm;
     }
 
 
