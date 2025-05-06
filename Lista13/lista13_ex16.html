@@ -12,7 +12,7 @@
     <input type="text" id="input_nome">
     <br>
     Preço da compra
-    <input type="text" id="input_preco">
+    <input type="number" id="input_preco">
     <br>
     <button onclick="Insert()">Cadastrar</button>
     <br><br>
@@ -45,8 +45,13 @@
 
     function Select() {
         var msm = ``;
+
         var max = 0;
+        var nome_max = '';
+
         var min = lista_preco[0];
+        var nome_min = 0;
+
         var soma_produtos = 0;
         var media = 0;
 
@@ -56,9 +61,11 @@
 
             if (max < lista_preco[i]) {
                 max = lista_preco[i];
+                nome_max = i;
             }
             if (min > lista_preco[i]) {
                 min = lista_preco[i];
+                nome_min = i;
             }
 
             soma_produtos += lista_preco[i]
@@ -67,8 +74,8 @@
         media = soma_produtos / lista_preco.length;
 
         msm += `
-            Produto mais caro: ${max};<br>
-            Produto mais barato: ${min};<br><br>
+            Produto mais caro: ${lista_nome[nome_max]};<br>
+            Produto mais barato: ${lista_nome[nome_min]};<br><br>
             Total: ${soma_produtos};<br>
             Media: ${media};        `
 
