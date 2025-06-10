@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa de Músicas</title>
+</head>
+
+<body>
+    <h2>Lista de melhores músicas</h2>
+    <hr>
+    <h3>Informe o nome da música</h3>
+    <input type="text" id="input_nome_mus">
+    <button onclick="cadastrar()">Cadastrar</button>
+    |
+    <button onclick="exibir()">Exibir</button>
+
+    <hr>
+
+    <h3>Filtrar Musica</h3>
+    <span>De:</span>
+    <input type="number" id="input_filtrar_de">
+    |
+    <span>Até:</span>
+    <input type="number" id="input_filtrar_ate">
+
+    <button onclick="filtrar()">Filtrar</button>
+    <br><br>
+
+    <hr>
+
+    <h3>Resultados:</h3>
+    <div id="div_msm"></div>
+
+    <hr>
+</body>
+
+</html>
+
+<script>
+
+    const lista_musica = [];
+
+
+    function cadastrar() {
+        const nome_mus = input_nome_mus.value;
+
+        if (lista_musica.includes(nome_mus)) {
+            div_msm.innerHTML = `Musica '${nome_mus}' já está na lista`;
+            return
+        }
+
+        lista_musica.push(nome_mus);
+
+        div_msm.innerHTML = `Música '${nome_mus}'' cadstrada com sucesso`;
+    }
+
+    function exibir() {
+        let msm = '';
+
+        for (let i = 0; i < lista_musica.length; i++) {
+            const posicao = lista_musica[i];
+            msm += `${i + 1} - ${posicao}<br>`;
+        }
+
+        div_msm.innerHTML = msm;
+    }
+
+    function filtrar() {
+        const de = Number(input_filtrar_de.value);
+        const ate = Number(input_filtrar_ate.value);
+
+        if (de > ate) {
+            div_msm.innerHTML = ' "De" não pode ser menor que "até" ';
+            return
+        } else if (de <= 0) {
+            div_msm.innerHTML = ' "De" não pode ser 0 ou menor ';
+            return
+        } else if (lista_musica.length < ate) {
+            div_msm.innerHTML = ' O campo "até" está grande de mais';
+            return
+        }
+
+        let msm = '';
+
+        for (let i = de - 1; i < ate; i++) {
+            const posicao = lista_musica[i];
+            msm += `${i + 1} - ${posicao}<br>`;
+        }
+
+        div_msm.innerHTML = msm;
+    }
+
+</script>

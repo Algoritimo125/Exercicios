@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Produtos</title>
+</head>
+
+<body>
+    <h2>Registro de produtos</h2>
+    <hr>
+    <h3>Insira o nome e o preço dos produtos para cadastro</h3>
+    Nome: <input type="text" id="input_nome">
+    <br><br>
+    Preço: <input type="text" id="input_preco">
+    <br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    |
+    <button onclick="atualizar()">Atualizar</button>
+
+    <br><br>
+    <hr>
+    <h3>Filtrar</h3>
+    <select id="select_filtrar">
+        <option value="acima">Preços acima de</option>
+        <option value="abaixo">Preços abaixo de</option>
+    </select>
+
+    <input type="text" id="input_valor">
+    <br><br>
+    <button onclick="filtrar()">Filtrar produtos</button>
+
+    <hr>
+
+    <br><br>
+    <hr>
+    <div id="div_msm"></div>
+    <hr>
+</body>
+
+</html>
+
+<script>
+
+    const lista_produtos = [];
+
+    function cadastrar() {
+        const nome = input_nome.value;
+        const preco = Number(input_preco.value);
+
+        if (nome.length > 3 && preco > 0) {
+
+            lista_produtos.push([nome, preco]);
+
+            div_msm.innerHTML = 'Cadastro realizado com sucesso!';
+
+        } else {
+
+        }
+    }
+
+    function atualizar() {
+        let msm = '';
+        let total = 0;
+
+        msm = `Você tem ${lista_produtos.length} produtos cadastrados em estoque:<br>`
+
+        for (let i = 0; i < lista_produtos.length; i++) {
+            const atual_nome = lista_produtos[i][0];
+            const atual_preco = lista_produtos[i][1];
+
+            total += atual_preco;
+
+            msm += `
+                ${i + 1}. ${atual_nome} - R$ ${atual_preco}<br>
+                `
+        }
+        msm += `<br>Seu estoque vale R$ ${total}`
+
+
+        div_msm.innerHTML = msm;
+    }
+
+    function filtrar() {
+        let msm = '';
+
+        const filtrar = select_filtrar.value;
+        const valor = Number(input_valor.value);
+
+        if (filtrar == 'acima') {
+            let total_cadastrados = 0;
+            let total_estoque = 0;
+
+            let msm = '';
+
+            for (let i = 0; i < lista_produtos.length; i++) {
+                const atual_nome = lista_produtos[i][0];
+                const atual_preco = lista_produtos[i][1];
+
+                if (atual_preco > valor) {
+
+                    total_cadastrados++;
+
+                    msm += `
+                        ${i + 1}. ${atual_nome} - R$ ${atual_preco}<br>
+                    `;
+
+                    total_estoque += atual_preco;
+                }
+            }
+
+            div_msm.innerHTML = `
+                Você tem ${total_cadastrados} produtos cadastrados com preço maior que ${valor} em estoque: <br>
+                ${msm}<br> 
+                Seu estoque vale R$ ${total_estoque}`;
+
+        } else if (filtrar == 'abaixo') {
+            let total_cadastrados = 0;
+            let total_estoque = 0;
+
+            let msm = '';
+
+            for (let i = 0; i < lista_produtos.length; i++) {
+                const atual_nome = lista_produtos[i][0];
+                const atual_preco = lista_produtos[i][1];
+
+                if (atual_preco < valor) {
+                    total_cadastrados++;
+
+                    msm += `
+                        ${i + 1}. ${atual_nome} - R$ ${atual_preco}<br>
+                    `;
+
+                    total_estoque += atual_preco;
+                }
+            }
+
+            div_msm.innerHTML = `
+                Você tem ${total_cadastrados} produtos cadastrados com preço maior que ${valor} em estoque: <br>
+                ${msm}<br> 
+                Seu estoque vale R$ ${total_estoque}`;
+
+        }
+    }
+
+</script>
